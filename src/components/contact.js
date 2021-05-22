@@ -57,17 +57,17 @@ const NewContainer = styled(Container)`
 
 const NewFormControl = styled(FormControl)`
   &:active, &:focus {
-    border: 1px solid blueviolet !important;
+    border: 1px solid #6200ea !important;
   }
 `;
 
 const NewButton = styled(Button)`
-  color: blueviolet;
-  border: 1px solid blueviolet;
+  color: #6200ea;
+  border: 1px solid #6200ea;
   margin-top: 5px;
   &:hover, &:active, &:focus {
-    background-color: blueviolet !important;
-    border: 1px solid blueviolet !important;
+    background-color: #6200ea !important;
+    border: 1px solid #6200ea !important;
     box-shadow: none !important;
   }
 `;
