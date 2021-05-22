@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Container } from "react-bootstrap";
+import Navigation from "./components/navbar";
+import ProductTable from "./components/productTable";
+import Graph from "./components/graph";
+import Contact from "./components/contact";
+import styled from "styled-components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <Wrapper>
+        <Navigation></Navigation>
+        <NewContainer>
+          <Graph></Graph>
+          <ProductTable></ProductTable>
+        </NewContainer>
+        <NewContainer>
+          <Contact></Contact>
+        </NewContainer>
+      </Wrapper>
+    );
+  }
 }
 
-export default App;
+const Wrapper = styled.div`
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+`;
+
+const NewContainer = styled(Container)`
+  width: 100%;
+  max-width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+`;
