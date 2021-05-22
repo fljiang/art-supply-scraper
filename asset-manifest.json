@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/art-supply-scraper/static/css/main.eb12cb14.chunk.css",
-    "main.js": "/art-supply-scraper/static/js/main.83c3b06f.chunk.js",
-    "main.js.map": "/art-supply-scraper/static/js/main.83c3b06f.chunk.js.map",
+    "main.js": "/art-supply-scraper/static/js/main.d8116645.chunk.js",
+    "main.js.map": "/art-supply-scraper/static/js/main.d8116645.chunk.js.map",
     "runtime-main.js": "/art-supply-scraper/static/js/runtime-main.324a9f59.js",
     "runtime-main.js.map": "/art-supply-scraper/static/js/runtime-main.324a9f59.js.map",
-    "static/js/2.24332af7.chunk.js": "/art-supply-scraper/static/js/2.24332af7.chunk.js",
-    "static/js/2.24332af7.chunk.js.map": "/art-supply-scraper/static/js/2.24332af7.chunk.js.map",
+    "static/js/2.ad45c702.chunk.js": "/art-supply-scraper/static/js/2.ad45c702.chunk.js",
+    "static/js/2.ad45c702.chunk.js.map": "/art-supply-scraper/static/js/2.ad45c702.chunk.js.map",
     "index.html": "/art-supply-scraper/index.html",
     "static/css/main.eb12cb14.chunk.css.map": "/art-supply-scraper/static/css/main.eb12cb14.chunk.css.map",
-    "static/js/2.24332af7.chunk.js.LICENSE.txt": "/art-supply-scraper/static/js/2.24332af7.chunk.js.LICENSE.txt"
+    "static/js/2.ad45c702.chunk.js.LICENSE.txt": "/art-supply-scraper/static/js/2.ad45c702.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.324a9f59.js",
-    "static/js/2.24332af7.chunk.js",
+    "static/js/2.ad45c702.chunk.js",
     "static/css/main.eb12cb14.chunk.css",
-    "static/js/main.83c3b06f.chunk.js"
+    "static/js/main.d8116645.chunk.js"
   ]
 }
