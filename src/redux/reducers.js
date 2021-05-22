@@ -4,8 +4,16 @@ let defaultTableData = [];
 const initialState = {
   graphData: defaultGraphData,
   tableData: defaultTableData,
-  searchInput: "Copic marker",
+  searchInput: "copic marker",
   selectedProduct: "",
+  searchOptions: [
+    {name: "copic marker 36 set"},
+    {name: "copic marker 72 set"},
+    {name: "copic marker 128 set"},
+    {name: "prismacolour marker 36 set"},
+    {name: "promarker 12 set"},
+    {name: "promarker 36 set"}
+  ],
   favourites: [],
   recentSearches: [],
   emailSuccess: false

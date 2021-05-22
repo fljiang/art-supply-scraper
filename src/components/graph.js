@@ -14,7 +14,7 @@ class Graph extends Component {
 
   render() {
     return (
-      <NewContainer>
+      <NewContainer id="graph">
         <XYPlot height={200} width={200} colorType="category" colorDomain={[0]} colorRange={["blueviolet"]}>
           <VerticalBarSeries data={this.props.graphData}></VerticalBarSeries>
         </XYPlot>
@@ -26,6 +26,9 @@ class Graph extends Component {
 const NewContainer = styled(Container)`
   width: 50%;
   max-width: 50%;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
 `;
 
 const mapStateToProps = (state) => ({

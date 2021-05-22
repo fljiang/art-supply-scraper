@@ -10,29 +10,50 @@ import {
 } from "react-bootstrap";
 import { connect } from "react-redux";
 import { setSearchInput } from "../redux/actions";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import styled from "styled-components";
 
 class Navigation extends Component {
   constructor(props) {
     super(props);
+    this.searchInputRef = React.createRef();
   }
 
-  submitSearchInput = (ev) => {
-    if (ev.key === "Enter") {
-      ev.preventDefault();
-      this.handleSearchInput();
+  filterSearchOptions = (e) => {
+    const { searchOptions } = this.props;
+    const currSearchInput = this.searchInputRef.current.value;
+    const filteredSearchOptions = searchOptions.filter(
+      (option) => option.toLowerCase().indexOf(currSearchInput.toLowerCase()) > -1
+    );
+    this.setState({
+      filteredSearchOptions,
+      showSearchOptions: true,
+      activeSearchOption: 0
+    });
+  }
+
+  handleSearchOption = (e) => {
+
+  }
+
+  handleSearchInput = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      this.submitSearchInput();
     }
   }
 
-  handleSearchInput = () => {
-    const searchInput = this.refs.searchInput.value;
+  submitSearchInput = () => {
+    const searchInput = this.searchInputRef.current.value;
     this.props.setSearchInput(searchInput);
     this.forceUpdate();
   }
 
   render() {
     const {
-      recentSearches
+      recentSearches,
+      searchOptions
     } = this.props;
 
     return(
@@ -49,10 +70,15 @@ class Navigation extends Component {
                 <NavDropdown.Item href="#action/3.3">{recentSearches[2]}</NavDropdown.Item>
               </NavDropdown>
             </NewNav>
-            <Form onKeyDown={this.submitSearchInput} inline>
-              <NewFormControl type="text" placeholder="Copic marker" ref="searchInput" />
-              <NewButton variant="outline-success" onClick={this.handleSearchInput}>Search</NewButton>
-            </Form>
+            <NewFormContainer id="form">
+              <Autocomplete
+                id="search-options"
+                options={searchOptions}
+                getOptionLabel={(searchOption) => searchOption.name}
+                style={{ width: 300 }}
+                renderInput={(params) => <TextField {...params} label="Search" variant="outlined" />}
+              />
+            </NewFormContainer>
           </Navbar.Collapse>
         </NewNavbar>
       </NewContainer>
@@ -68,13 +94,20 @@ const NewContainer = styled(Container)`
   padding-right: 0;
 `;
 
+const NewFormContainer = styled(Container)`
+  display: flex;
+  flex-direction: row;
+`;
+
 const NewNavbar = styled(Navbar)`
+  height: 15%;
+  max-height: 15%;
   width: calc(15px + 100%);
   border-bottom: 2px solid #eee;
 `;
 
 const NewNav = styled(Nav)`
-  margin-left: 50%;
+  margin-left: 45%;
 `;
 
 const NewFormControl = styled(FormControl)`
@@ -100,7 +133,8 @@ const mapDispatchToProps =  {
 };
 
 const mapStateToProps = (state) => ({
-  recentSearches: state.recentSearches
+  recentSearches: state.recentSearches,
+  searchOptions: state.searchOptions
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
