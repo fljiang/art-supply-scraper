@@ -15,7 +15,7 @@ class Graph extends Component {
   render() {
     return (
       <NewContainer id="graph">
-        <XYPlot height={200} width={200} colorType="category" colorDomain={[0]} colorRange={["#6200ea"]}>
+        <XYPlot height={200} width={200} colorType="category" colorDomain={[0]} colorRange={["#7e57c2"]}>
           <VerticalBarSeries data={this.props.graphData}></VerticalBarSeries>
         </XYPlot>
       </NewContainer>

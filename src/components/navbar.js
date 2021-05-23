@@ -8,7 +8,6 @@ import {
 } from "react-bootstrap";
 import { connect } from "react-redux";
 import { setSearchInput } from "../redux/actions";
-import { purple } from '@material-ui/core/colors';
 import {
   withStyles,
   createMuiTheme,
@@ -23,19 +22,6 @@ class Navigation extends Component {
     this.searchInputRef = React.createRef();
   }
 
-  filterSearchOptions = (e) => {
-    const { searchOptions } = this.props;
-    const currSearchInput = this.searchInputRef.current.value;
-    const filteredSearchOptions = searchOptions.filter(
-      (option) => option.toLowerCase().indexOf(currSearchInput.toLowerCase()) > -1
-    );
-    this.setState({
-      filteredSearchOptions,
-      showSearchOptions: true,
-      activeSearchOption: 0
-    });
-  }
-
   handleSearchInput = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -45,6 +31,7 @@ class Navigation extends Component {
 
   submitSearchInput = () => {
     const searchInput = this.searchInputRef.current.value;
+    console.log(searchInput);
     this.props.setSearchInput(searchInput);
     this.forceUpdate();
   }
@@ -74,7 +61,12 @@ class Navigation extends Component {
                 id="search-options"
                 options={searchOptions}
                 getOptionLabel={(searchOption) => searchOption.name}
-                renderInput={(params) => <TextField {...params} label="Search" color="primary"/>}
+                renderInput={(params) =>
+                <TextField
+                  {...params} label="Search"
+                  color="primary"
+                  onKeyDown={this.handleSearchInput}
+                  inputRef={this.searchInputRef}/>}
               />
             </ThemeProvider>
             <NewButton variant="outline-success" onClick={this.submitSearchInput}>Search</NewButton>
@@ -99,14 +91,14 @@ const NewNavbar = styled(Navbar)`
 `;
 
 const NewButton = styled(Button)`
-  color: #6200ea;
+  color: #7e57c2;
   height: 50px;
   margin-left: 5px;
   margin-right: 15px;
-  border: 1px solid #6200ea;
+  border: 1px solid #7e57c2;
   &:hover, &:active, &:focus {
-    background-color: #6200ea !important;
-    border: 1px solid #6200ea !important;
+    background-color: #7e57c2 !important;
+    border: 1px solid #7e57c2 !important;
     box-shadow: none !important;
   }
 `;
@@ -121,7 +113,7 @@ const StyledAutocomplete = withStyles({
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#6200ea",
+      main: "#7e57c2",
     }
   }
 });
