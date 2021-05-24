@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import { Container } from "react-bootstrap";
 import Navigation from "./components/navbar";
 import ProductTable from "./components/productTable";

@@ -31,7 +31,6 @@ class Navigation extends Component {
 
   submitSearchInput = () => {
     const searchInput = this.searchInputRef.current.value;
-    console.log(searchInput);
     this.props.setSearchInput(searchInput);
     this.forceUpdate();
   }
