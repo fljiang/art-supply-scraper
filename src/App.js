@@ -17,7 +17,6 @@ function App() {
       <NewContainer>
         <Contact></Contact>
       </NewContainer>
-      <p>The current time is </p>
     </Wrapper>
   );
 }
