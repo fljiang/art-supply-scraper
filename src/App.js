@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import Navigation from "./components/navbar";
 import ProductTable from "./components/productTable";
@@ -5,19 +6,21 @@ import Graph from "./components/graph";
 import Contact from "./components/contact";
 import styled from "styled-components";
 
-function App() {
-  return (
-    <Wrapper>
-      <Navigation></Navigation>
-      <NewContainer>
-        <Graph></Graph>
-        <ProductTable></ProductTable>
-      </NewContainer>
-      <NewContainer>
-        <Contact></Contact>
-      </NewContainer>
-    </Wrapper>
-  );
+class App extends Component() {
+  render() {
+    return (
+      <Wrapper>
+        <Navigation></Navigation>
+        <NewContainer>
+          <Graph></Graph>
+          <ProductTable></ProductTable>
+        </NewContainer>
+        <NewContainer>
+          <Contact></Contact>
+        </NewContainer>
+      </Wrapper>
+    );
+  }
 }
 
 const Wrapper = styled.div`
