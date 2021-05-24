@@ -63,7 +63,7 @@ class Navigation extends Component {
                 getOptionLabel={(searchOption) => searchOption.name}
                 renderInput={(params) =>
                 <TextField
-                  {...params} label="Search"
+                  {...params}
                   color="primary"
                   onKeyDown={this.handleSearchInput}
                   inputRef={this.searchInputRef}/>}
@@ -92,8 +92,7 @@ const NewNavbar = styled(Navbar)`
 
 const NewButton = styled(Button)`
   color: #7e57c2;
-  height: 50px;
-  margin-left: 5px;
+  height: 50%;
   margin-right: 15px;
   border: 1px solid #7e57c2;
   &:hover, &:active, &:focus {
@@ -105,6 +104,7 @@ const NewButton = styled(Button)`
 
 const StyledAutocomplete = withStyles({
   root: {
+    padding: 10,
     height: 50,
     width: 300
   }

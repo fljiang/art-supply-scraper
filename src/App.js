@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from 'react';
 import { Container } from "react-bootstrap";
 import Navigation from "./components/navbar";
 import ProductTable from "./components/productTable";
@@ -6,21 +6,20 @@ import Graph from "./components/graph";
 import Contact from "./components/contact";
 import styled from "styled-components";
 
-export default class App extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <Navigation></Navigation>
-        <NewContainer>
-          <Graph></Graph>
-          <ProductTable></ProductTable>
-        </NewContainer>
-        <NewContainer>
-          <Contact></Contact>
-        </NewContainer>
-      </Wrapper>
-    );
-  }
+function App() {
+  return (
+    <Wrapper>
+      <Navigation></Navigation>
+      <NewContainer>
+        <Graph></Graph>
+        <ProductTable></ProductTable>
+      </NewContainer>
+      <NewContainer>
+        <Contact></Contact>
+      </NewContainer>
+      <p>The current time is </p>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.div`
@@ -39,3 +38,5 @@ const NewContainer = styled(Container)`
   display: flex;
   flex-direction: row;
 `;
+
+export default App;

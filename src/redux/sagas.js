@@ -5,8 +5,9 @@ export const getSearchInput = state => state.searchInput;
 export const getRecentSearches = state => state.recentSearches;
 
 function* setSearchInput(action) {
+
   let newRecentSearches = yield select(getRecentSearches);
-  let currIndex = newRecentSearches.length;
+  const currIndex = newRecentSearches.length;
 
   for (let i = currIndex; i > 0; i--) {
     newRecentSearches[i] = newRecentSearches[i - 1];
