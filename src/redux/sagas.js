@@ -16,8 +16,8 @@ function* setSearchInput(action) {
   newRecentSearches[0] = action.searchInput;
   newRecentSearches = newRecentSearches.slice(0, 3);
 
-  const result = yield call(fetchData);
-  console.log(result);
+  // const result = yield call(fetchData);
+  // console.log(result);
 
   yield put({
     type: "SEARCH_INPUT_UPDATED",

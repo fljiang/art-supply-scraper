@@ -44,7 +44,7 @@ class Navigation extends Component {
     return(
       <NewContainer id="navbar">
         <NewNavbar bg="light" expand="lg">
-          <Navbar.Brand href="#home">Art-Supply-Bot</Navbar.Brand>
+          <Navbar.Brand href="#home">Art-Supply-Scraper</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
