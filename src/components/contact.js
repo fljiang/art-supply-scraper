@@ -7,39 +7,40 @@ import {
 } from "react-bootstrap";
 import { MdDone } from "react-icons/md";
 import { connect } from "react-redux";
-import { setEmail } from "../redux/actions";
+import { setEmailInput } from "../redux/actions";
 import styled from "styled-components";
 
 class Contact extends Component {
   constructor(props) {
     super(props);
+    this.emailInputRef = React.createRef();
   }
 
-  submitEmail = (ev) => {
+  handleEmailInput = (ev) => {
     if (ev.key === "Enter") {
       ev.preventDefault();
       this.handleEmail();
     }
   }
 
-  handleEmail = () => {
-    const email = this.refs.email.value;
-    this.props.setEmail(email);
+  submitEmailInput = () => {
+    const emailInput = this.emailInputRef.current.value;
+    this.props.setEmailInput(emailInput);
   }
 
   render() {
     let success;
-    if (this.props.emailSuccess) {
+    if (this.props.emailInputSuccess) {
       success = <MdDone />
     }
 
     return (
       <NewContainer id="contact">
-        <Form onKeyDown={this.submitEmail} inline>
-          <NewFormControl type="email" placeholder="Enter email" ref="email" />
+        <Form onKeyDown={this.handleEmailInput} inline>
+          <NewFormControl type="email" placeholder="Enter email" ref={this.emailInputRef} />
           {success}
         </Form>
-        <NewButton variant="outline-success" onClick={this.handleEmail}>
+        <NewButton variant="outline-success" onClick={this.submitEmailInput}>
             Submit
         </NewButton>
       </NewContainer>
@@ -73,11 +74,11 @@ const NewButton = styled(Button)`
 `;
 
 const mapDispatchToProps = {
-  setEmail: setEmail
+  setEmailInput: setEmailInput
 };
 
 const mapStateToProps = (state) => ({
-  emailSuccess: state.emailSuccess
+  emailInputSuccess: state.emailInputSuccess
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contact);

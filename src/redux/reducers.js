@@ -16,7 +16,7 @@ const initialState = {
   ],
   favourites: [],
   recentSearches: [],
-  emailSuccess: false
+  emailInputSuccess: false
 }
 
 export default (state = initialState, action) => {
@@ -26,10 +26,10 @@ export default (state = initialState, action) => {
         ...state,
         searchInput: action.searchInput,
       }
-    case "EMAIL_UPDATED":
+    case "EMAIL_INPUT_UPDATED":
       return {
         ...state,
-        emailSuccess: true
+        emailInputSuccess: true
       }
     default:
       return state;

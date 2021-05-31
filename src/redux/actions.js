@@ -5,9 +5,9 @@ export const setSearchInput = (searchInput) => {
   }
 }
 
-export const setEmail = (email) => {
+export const setEmailInput = (emailInput) => {
   return {
-    type: "SET_EMAIL",
-    email
+    type: "SET_EMAIL_INPUT",
+    emailInput
   }
 }

@@ -3,8 +3,12 @@ from flask import Flask
 from flask_cors import CORS
 
 app = Flask(__name__)
-Acors = CORS(app)
+cors = CORS(app)
 
-@app.route("/")
-def get_current_time():
-    return {"/": time.time()}
+@app.route("/search/<searchInput>")
+def getData(searchInput):
+  return time.time()
+
+@app.route("/email/<emailInput>")
+def postEmail(email):
+  print("hi")
