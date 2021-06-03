@@ -1,4 +1,3 @@
-import time
 from flask import Flask
 from flask_cors import CORS
 import pandas as pd
@@ -6,16 +5,13 @@ import pandas as pd
 app = Flask(__name__)
 cors = CORS(app)
 
-
-@app.route("/search/<searchInput>")
+@app.route("/table/<searchInput>")
 def getTableData(searchInput):
     df = pd.read_csv("test.csv")
 
-
-@app.route("/table/<productID>")
+@app.route("/graph/<productID>")
 def getGraphData(productID):
     df = pd.read_csv("test.csv")
-
 
 @app.route("/email/<emailInput>")
 def postEmail(email):
