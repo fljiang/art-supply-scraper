@@ -19,8 +19,8 @@ function* setSearchInput(action) {
   newRecentSearches[0] = action.searchInput;
   newRecentSearches = newRecentSearches.slice(0, 3);
 
-  // const result = yield call(getData(action.searchInput));
-  // console.log(result);
+  const result = yield call(getData, action.searchInput);
+  console.log(result);
 
   yield put({
     type: "SEARCH_INPUT_UPDATED",
@@ -31,7 +31,7 @@ function* setSearchInput(action) {
 
 function* setEmailInput(action) {
 
-  // yield call(postEmail(action.emailInput));
+  // yield call(postEmail, action.emailInput);
 
   yield put({
     type: "EMAIL_INPUT_UPDATED",

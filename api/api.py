@@ -8,6 +8,7 @@ cors = CORS(app)
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
     df = pd.read_csv("test.csv")
+    return {"ree": 1}
 
 @app.route("/graph/<productID>")
 def getGraphData(productID):
