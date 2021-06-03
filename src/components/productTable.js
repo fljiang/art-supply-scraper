@@ -28,24 +28,24 @@ class ProductTable extends Component {
           <tbody>
             <tr>
               <td><MdDone /></td>
-              <td>{ this.props.searchInput }</td>
-              <td>Todo</td>
-              <td>Todo</td>
-              <td>Todo</td>
+              <td>{ this.props.tableData[0].name }</td>
+              <td>{ this.props.tableData[0].store }</td>
+              <td>{ this.props.tableData[0].stock }</td>
+              <td>{ this.props.tableData[0].price }</td>
             </tr>
             <tr>
               <td><MdDone /></td>
-              <td>{ this.props.searchInput }</td>
-              <td>Todo</td>
-              <td>Todo</td>
-              <td>Todo</td>
+              <td>{ this.props.tableData[1].name }</td>
+              <td>{ this.props.tableData[1].store }</td>
+              <td>{ this.props.tableData[1].stock }</td>
+              <td>{ this.props.tableData[1].price }</td>
             </tr>
             <tr>
               <td><MdDone /></td>
-              <td>{ this.props.searchInput }</td>
-              <td>Todo</td>
-              <td>Todo</td>
-              <td>Todo</td>
+              <td>{ this.props.tableData[2].name }</td>
+              <td>{ this.props.tableData[2].store }</td>
+              <td>{ this.props.tableData[2].stock }</td>
+              <td>{ this.props.tableData[2].price }</td>
             </tr>
           </tbody>
         </Table>
@@ -63,7 +63,7 @@ const NewContainer = styled(Container)`
 `;
 
 const mapStateToProps = (state) => ({
-  searchInput: state.searchInput
+  tableData: state.tableData
 });
 
 export default connect(mapStateToProps)(ProductTable);

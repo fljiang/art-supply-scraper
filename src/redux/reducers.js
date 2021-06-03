@@ -1,11 +1,34 @@
 let defaultGraphData = [{x: 1, y: 2}, {x: 2, y: 3}, {x: 3, y: 4}, {x: 4, y: 5}];
-let defaultTableData = [];
+let defaultTableData = [
+  {
+    "id": 1,
+    "name": "TODO",
+    "store": "TODO",
+    "stock": "TODO",
+    "price": 0
+  },
+  {
+    "id": 2,
+    "name": "TODO",
+    "store": "TODO",
+    "stock": "TODO",
+    "price": 0
+  },
+  {
+    "id": 3,
+    "name": "TODO",
+    "store": "TODO",
+    "stock": "TODO",
+    "price": 0
+  }
+]
 
 const initialState = {
+  emailInputSuccess: false,
+  favourites: [],
   graphData: defaultGraphData,
-  tableData: defaultTableData,
+  recentSearches: [],
   searchInput: "copic marker",
-  selectedProduct: "",
   searchOptions: [
     {name: "copic marker 36 set"},
     {name: "copic marker 72 set"},
@@ -14,9 +37,8 @@ const initialState = {
     {name: "promarker 12 set"},
     {name: "promarker 36 set"}
   ],
-  favourites: [],
-  recentSearches: [],
-  emailInputSuccess: false
+  selectedProduct: "",
+  tableData: defaultTableData
 }
 
 export default (state = initialState, action) => {
@@ -24,7 +46,9 @@ export default (state = initialState, action) => {
     case "SEARCH_INPUT_UPDATED":
       return {
         ...state,
+        recentSearches: action.recentSearches,
         searchInput: action.searchInput,
+        tableData: action.tableData
       }
     case "EMAIL_INPUT_UPDATED":
       return {

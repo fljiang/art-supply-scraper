@@ -16,16 +16,16 @@ function* setSearchInput(action) {
   for (let i = currIndex; i > 0; i--) {
     newRecentSearches[i] = newRecentSearches[i - 1];
   }
+
   newRecentSearches[0] = action.searchInput;
   newRecentSearches = newRecentSearches.slice(0, 3);
-
-  const result = yield call(getData, action.searchInput);
-  console.log(result);
+  const tableData = yield call(getData, action.searchInput);
 
   yield put({
     type: "SEARCH_INPUT_UPDATED",
+    recentSearches: newRecentSearches,
     searchInput: action.searchInput,
-    recentSearches: newRecentSearches
+    tableData: tableData.data
   });
 }
 

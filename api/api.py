@@ -8,7 +8,31 @@ cors = CORS(app)
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
     df = pd.read_csv("test.csv")
-    return {"ree": 1}
+    return {
+      "data": [
+        {
+          "id": 1,
+          "name": searchInput,
+          "store": "A",
+          "stock": "Y",
+          "price": 1
+        },
+        {
+          "id": 2,
+          "name": searchInput,
+          "store": "B",
+          "stock": "N",
+          "price": 2
+        },
+        {
+          "id": 3,
+          "name": searchInput,
+          "store": "C",
+          "stock": "Y",
+          "price": 3
+        }
+      ]
+    }
 
 @app.route("/graph/<productID>")
 def getGraphData(productID):
