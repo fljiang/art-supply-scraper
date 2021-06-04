@@ -5,6 +5,11 @@ from flask_cors import CORS
 app = Flask(__name__)
 cors = CORS(app)
 
+@app.route("/")
+def default() {
+  return "API working!"
+}
+
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
   # df = pd.read_csv("test.csv")
