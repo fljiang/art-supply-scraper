@@ -6,9 +6,8 @@ app = Flask(__name__)
 cors = CORS(app)
 
 @app.route("/")
-def default() {
+def default():
   return "API working!"
-}
 
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
