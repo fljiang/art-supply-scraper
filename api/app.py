@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
-import pandas as pd
+## import pandas as pd
 
 app = Flask(__name__)
 cors = CORS(app)
