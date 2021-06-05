@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import BootstrapTable from "react-bootstrap-table-next";
 // import { MdDone } from "react-icons/md";
 import { connect } from "react-redux";
-import { setProductID } from "../redux/actions";
+import { setproductId } from "../redux/actions";
 import styled from "styled-components";
 
 const columns = [{
@@ -32,7 +32,7 @@ class ProductTable extends Component {
     const rowEvents = {
       onClick: (e, row, rowIndex) => {
         console.log("clicked on row with index: ${rowIndex}");
-        // this.handleProductID(productID);
+        // this.handleproductId(productId);
       }
     };
 
@@ -53,7 +53,7 @@ const NewContainer = styled(Container)`
 `;
 
 const mapDispatchToProps = {
-  setProductID: setProductID
+  setproductId: setproductId
 };
 
 const mapStateToProps = (state) => ({

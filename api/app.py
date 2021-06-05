@@ -15,13 +15,13 @@ def getTableData(searchInput):
   df = pd.read_csv("test.csv")
   list = []
   tableDataDf = df.loc[df["name"] == searchInput]
-  tableDataDf = tableDataDf.drop_duplicates(subset=["productID"], keep="last")
+  tableDataDf = tableDataDf.drop_duplicates(subset=["productId"], keep="last")
   result = tableDataDf.to_json(orient="table")
   parsed = json.loads(result)
   for i in parsed["data"]:
     dict = {
       "name": i["name"],
-      "productID": i["productID"],
+      "productId": i["productId"],
       "store": i["store"],
       "stock": i["stock"],
       "price": i["price"]
@@ -29,16 +29,16 @@ def getTableData(searchInput):
     list.append(dict)
   return { "data" : list }
 
-@app.route("/graph/<productID>")
-def getGraphData(productID):
+@app.route("/graph/<productId>")
+def getGraphData(productId):
   df = pd.read_csv("test.csv")
-  graphdDf = df.loc[df["productId"] == productID]
+  graphdDf = df.loc[df["productId"] == productId]
   graphdDf = graphdDf.tail(5) # 5 most recent prices
   result = graphdDf.to_json(orient="table")
   parsed = json.loads(result)
   for i in parsed["data"]:
     dict = {
-      "productID": i["productID"],
+      "productId": i["productId"],
       "date": i["date"],
       "price": i["price"]
     }

@@ -28,7 +28,7 @@ function* setSearchInput(action) {
   });
 }
 
-function* setProductID(action) {
+function* setproductId(action) {
   console.log("here");
 
   yield put({
@@ -46,7 +46,7 @@ function* setEmailInput(action) {
 
 function* appWatcher() {
   yield takeLatest("SET_SEARCH_INPUT", setSearchInput);
-  yield takeLatest("SET_PRODUCT_ID", setProductID);
+  yield takeLatest("SET_PRODUCT_ID", setproductId);
   yield takeLatest("SET_EMAIL_INPUT", setEmailInput);
 }
 

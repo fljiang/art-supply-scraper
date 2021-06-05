@@ -1,4 +1,4 @@
-name,date,price,store,id,stock
+name,date,price,store,productId,stock
 copic marker 36 set,2021-04-19,17.55,A,Acm36,12
 copic marker 36 set,2021-04-20,94.37,A,Acm36,23
 copic marker 36 set,2021-04-21,17.65,A,Acm36,4
