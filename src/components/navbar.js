@@ -1,3 +1,10 @@
+import {
+  withStyles,
+  createMuiTheme,
+  ThemeProvider
+ } from '@material-ui/core/styles';
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import React, { Component } from "react";
 import {
   Button,
@@ -8,14 +15,8 @@ import {
 } from "react-bootstrap";
 import { connect } from "react-redux";
 import { setSearchInput } from "../redux/actions";
-import {
-  withStyles,
-  createMuiTheme,
-  ThemeProvider
- } from '@material-ui/core/styles';
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
 import styled from "styled-components";
+
 class Navigation extends Component {
   constructor(props) {
     super(props);
@@ -117,7 +118,7 @@ const theme = createMuiTheme({
   }
 });
 
-const mapDispatchToProps =  {
+const mapDispatchToProps = {
   setSearchInput: setSearchInput
 };
 

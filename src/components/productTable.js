@@ -1,11 +1,27 @@
 import React, { Component } from "react";
-import {
-  Table,
-  Container
- } from "react-bootstrap";
-import { MdDone } from "react-icons/md";
+import { Container } from "react-bootstrap";
+import BootstrapTable from "react-bootstrap-table-next";
+// import { MdDone } from "react-icons/md";
 import { connect } from "react-redux";
+import { setProductID } from "../redux/actions";
 import styled from "styled-components";
+
+const columns = [{
+  dataField: "favorite",
+  text: "Favorite"
+}, {
+  dataField: "name",
+  text: "Name"
+}, {
+  dataField: "store",
+  text: "Store"
+}, {
+  dataField: "stock",
+  text: "Stock"
+}, {
+  dataField: "price",
+  text: "Price"
+}];
 
 class ProductTable extends Component {
   constructor(props) {
@@ -13,42 +29,15 @@ class ProductTable extends Component {
   }
 
   render() {
+    const rowEvents = {
+      onClick: (e, row, rowIndex) => {
+        console.log("clicked on row with index: ${rowIndex}");
+      }
+    };
+
     return(
       <NewContainer id="table">
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Favorite</th>
-              <th>Product Name</th>
-              <th>Store</th>
-              <th>Stock</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><MdDone /></td>
-              <td>{ this.props.tableData[0].name }</td>
-              <td>{ this.props.tableData[0].store }</td>
-              <td>{ this.props.tableData[0].stock }</td>
-              <td>{ this.props.tableData[0].price }</td>
-            </tr>
-            <tr>
-              <td><MdDone /></td>
-              <td>{ this.props.tableData[1].name }</td>
-              <td>{ this.props.tableData[1].store }</td>
-              <td>{ this.props.tableData[1].stock }</td>
-              <td>{ this.props.tableData[1].price }</td>
-            </tr>
-            <tr>
-              <td><MdDone /></td>
-              <td>{ this.props.tableData[2].name }</td>
-              <td>{ this.props.tableData[2].store }</td>
-              <td>{ this.props.tableData[2].stock }</td>
-              <td>{ this.props.tableData[2].price }</td>
-            </tr>
-          </tbody>
-        </Table>
+        <BootstrapTable keyField='id' data={ this.props.tableData } columns={ columns } rowEvents={ rowEvents }/>
       </NewContainer>
     );
   }
@@ -62,8 +51,12 @@ const NewContainer = styled(Container)`
   padding-right: 0;
 `;
 
+const mapDispatchToProps = {
+  setProductID: setProductID
+};
+
 const mapStateToProps = (state) => ({
   tableData: state.tableData
 });
 
-export default connect(mapStateToProps)(ProductTable);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductTable);

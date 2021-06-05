@@ -5,6 +5,13 @@ export const setSearchInput = (searchInput) => {
   }
 }
 
+export const setProductID = (productID) => {
+  return {
+    type: "SET_PRODUCT_ID",
+    productID
+  }
+}
+
 export const setEmailInput = (emailInput) => {
   return {
     type: "SET_EMAIL_INPUT",

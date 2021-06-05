@@ -9,7 +9,6 @@ export const getSearchInput = state => state.searchInput;
 export const getRecentSearches = state => state.recentSearches;
 
 function* setSearchInput(action) {
-
   let newRecentSearches = yield select(getRecentSearches);
   const currIndex = newRecentSearches.length;
 
@@ -29,8 +28,15 @@ function* setSearchInput(action) {
   });
 }
 
-function* setEmailInput(action) {
+function* setProductID(action) {
+  console.log("here");
 
+  yield put({
+    type: "PRODUCT_ID_UPDATED",
+  });
+}
+
+function* setEmailInput(action) {
   // yield call(postEmail, action.emailInput);
 
   yield put({
@@ -40,6 +46,7 @@ function* setEmailInput(action) {
 
 function* appWatcher() {
   yield takeLatest("SET_SEARCH_INPUT", setSearchInput);
+  yield takeLatest("SET_PRODUCT_ID", setProductID);
   yield takeLatest("SET_EMAIL_INPUT", setEmailInput);
 }
 

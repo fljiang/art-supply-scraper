@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
-import styled from "styled-components";
+import { connect } from "react-redux";
 import {
   XYPlot,
   VerticalBarSeries
 } from "react-vis";
-import { connect } from "react-redux";
+import styled from "styled-components";
 
 class Graph extends Component {
   constructor(props) {

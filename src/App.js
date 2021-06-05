@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Navigation></Navigation>
-        <NewContainer>
+        <NewContainer id="app">
           <Graph></Graph>
           <ProductTable></ProductTable>
         </NewContainer>
