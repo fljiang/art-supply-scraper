@@ -1,109 +1,109 @@
 name,date,price,store,id,stock
-copic marker 36 set,2021-04-19,17.55,A,1,12
-copic marker 36 set,2021-04-20,94.37,A,1,23
-copic marker 36 set,2021-04-21,17.65,A,1,4
-copic marker 36 set,2021-04-22,9.64,A,1,56
-copic marker 36 set,2021-04-23,97.46,A,1,4
-copic marker 36 set,2021-04-24,10.62,B,2,32
-copic marker 36 set,2021-04-25,26.15,B,2,57
-copic marker 36 set,2021-04-26,71.74,B,2,32
-copic marker 36 set,2021-05-01,44.18,B,2,13
-copic marker 36 set,2021-05-02,40.19,B,2,32
-copic marker 36 set,2021-05-03,72.2,B,2,65
-copic marker 36 set,2021-05-04,42.82,B,2,3
-copic marker 36 set,2021-05-05,40.59,C,3,84
-copic marker 36 set,2021-05-06,86.86,C,3,12
-copic marker 36 set,2021-05-07,90.68,C,3,34
-copic marker 36 set,2021-05-08,47.2,C,3,2
-copic marker 36 set,2021-05-09,59.54,C,3,2
-copic marker 36 set,2021-05-10,91.69,C,3,6
-copic marker 72 set,2021-04-19,22.19,A,1,12
-copic marker 72 set,2021-04-20,47.72,A,1,23
-copic marker 72 set,2021-04-21,77.56,A,1,4
-copic marker 72 set,2021-04-22,4.13,A,1,56
-copic marker 72 set,2021-04-23,23.77,A,1,4
-copic marker 72 set,2021-04-24,75.4,B,2,32
-copic marker 72 set,2021-04-25,40.76,B,2,57
-copic marker 72 set,2021-04-26,83.89,B,2,32
-copic marker 72 set,2021-05-01,2.51,B,2,13
-copic marker 72 set,2021-05-02,92.79,B,2,32
-copic marker 72 set,2021-05-03,48.92,B,2,65
-copic marker 72 set,2021-05-04,19,B,2,3
-copic marker 72 set,2021-05-05,85.74,C,3,84
-copic marker 72 set,2021-05-06,77.08,C,3,12
-copic marker 72 set,2021-05-07,50.49,C,3,34
-copic marker 72 set,2021-05-08,79.45,C,3,2
-copic marker 72 set,2021-05-09,46.19,C,3,2
-copic marker 72 set,2021-05-10,96.34,C,3,6
-copic marker 128 set,2021-04-19,12.84,A,1,12
-copic marker 128 set,2021-04-20,10.26,A,1,23
-copic marker 128 set,2021-04-21,28.85,A,1,4
-copic marker 128 set,2021-04-22,95.58,A,1,56
-copic marker 128 set,2021-04-23,20.78,A,1,4
-copic marker 128 set,2021-04-24,9.05,B,2,32
-copic marker 128 set,2021-04-25,4.97,B,2,57
-copic marker 128 set,2021-04-26,37.42,B,2,32
-copic marker 128 set,2021-05-01,10.33,B,2,13
-copic marker 128 set,2021-05-02,77.01,B,2,32
-copic marker 128 set,2021-05-03,53.05,B,2,65
-copic marker 128 set,2021-05-04,99.08,B,2,3
-copic marker 128 set,2021-05-05,97.12,C,3,84
-copic marker 128 set,2021-05-06,24.16,C,3,12
-copic marker 128 set,2021-05-07,98.88,C,3,34
-copic marker 128 set,2021-05-08,5.36,C,3,2
-copic marker 128 set,2021-05-09,0.09,C,3,2
-copic marker 128 set,2021-05-10,65.45,C,3,6
-prismacolour marker 36 set,2021-04-19,17.89,A,1,12
-prismacolour marker 36 set,2021-04-20,75.83,A,1,23
-prismacolour marker 36 set,2021-04-21,14.75,A,1,4
-prismacolour marker 36 set,2021-04-22,14.88,A,1,56
-prismacolour marker 36 set,2021-04-23,44.76,A,1,4
-prismacolour marker 36 set,2021-04-24,40.53,B,2,32
-prismacolour marker 36 set,2021-04-25,25.79,B,2,57
-prismacolour marker 36 set,2021-04-26,24.56,B,2,32
-prismacolour marker 36 set,2021-05-01,33.99,B,2,13
-prismacolour marker 36 set,2021-05-02,33.11,B,2,32
-prismacolour marker 36 set,2021-05-03,48.17,B,2,65
-prismacolour marker 36 set,2021-05-04,83.23,B,2,3
-prismacolour marker 36 set,2021-05-05,14.66,C,3,84
-prismacolour marker 36 set,2021-05-06,16.16,C,3,12
-prismacolour marker 36 set,2021-05-07,87.86,C,3,34
-prismacolour marker 36 set,2021-05-08,10.33,C,3,2
-prismacolour marker 36 set,2021-05-09,70.15,C,3,2
-prismacolour marker 36 set,2021-05-10,36.86,C,3,6
-promarker 12 set,2021-04-19,65.21,A,1,12
-promarker 12 set,2021-04-20,99.6,A,1,23
-promarker 12 set,2021-04-21,14.59,A,1,4
-promarker 12 set,2021-04-22,65.06,A,1,56
-promarker 12 set,2021-04-23,52.8,A,1,4
-promarker 12 set,2021-04-24,15.87,B,2,32
-promarker 12 set,2021-04-25,8.99,B,2,57
-promarker 12 set,2021-04-26,76.89,B,2,32
-promarker 12 set,2021-05-01,92.03,B,2,13
-promarker 12 set,2021-05-02,21.14,B,2,32
-promarker 12 set,2021-05-03,8.01,B,2,65
-promarker 12 set,2021-05-04,24.35,B,2,3
-promarker 12 set,2021-05-05,46.3,C,3,84
-promarker 12 set,2021-05-06,25.67,C,3,12
-promarker 12 set,2021-05-07,4.82,C,3,34
-promarker 12 set,2021-05-08,69.3,C,3,2
-promarker 12 set,2021-05-09,13.45,C,3,2
-promarker 12 set,2021-05-10,10.71,C,3,6
-promarker 36 set,2021-04-19,17.59,A,1,12
-promarker 36 set,2021-04-20,10.7,A,1,23
-promarker 36 set,2021-04-21,27.69,A,1,4
-promarker 36 set,2021-04-22,83.11,A,1,56
-promarker 36 set,2021-04-23,91.6,A,1,4
-promarker 36 set,2021-04-24,79.56,B,2,32
-promarker 36 set,2021-04-25,83.33,B,2,57
-promarker 36 set,2021-04-26,34.79,B,2,32
-promarker 36 set,2021-05-01,30.96,B,2,13
-promarker 36 set,2021-05-02,1.79,B,2,32
-promarker 36 set,2021-05-03,57.17,B,2,65
-promarker 36 set,2021-05-04,74.41,B,2,3
-promarker 36 set,2021-05-05,98.97,C,3,84
-promarker 36 set,2021-05-06,44.17,C,3,12
-promarker 36 set,2021-05-07,90.52,C,3,34
-promarker 36 set,2021-05-08,60.58,C,3,2
-promarker 36 set,2021-05-09,52.45,C,3,2
-promarker 36 set,2021-05-10,88.21,C,3,6
+copic marker 36 set,2021-04-19,17.55,A,Acm36,12
+copic marker 36 set,2021-04-20,94.37,A,Acm36,23
+copic marker 36 set,2021-04-21,17.65,A,Acm36,4
+copic marker 36 set,2021-04-22,9.64,A,Acm36,56
+copic marker 36 set,2021-04-23,97.46,A,Acm36,4
+copic marker 36 set,2021-04-24,10.62,B,Bcm36,32
+copic marker 36 set,2021-04-25,26.15,B,Bcm36,57
+copic marker 36 set,2021-04-26,71.74,B,Bcm36,32
+copic marker 36 set,2021-05-01,44.18,B,Bcm36,13
+copic marker 36 set,2021-05-02,40.19,B,Bcm36,32
+copic marker 36 set,2021-05-03,72.2,B,Bcm36,65
+copic marker 36 set,2021-05-04,42.82,B,Bcm36,3
+copic marker 36 set,2021-05-05,40.59,C,Ccm36,84
+copic marker 36 set,2021-05-06,86.86,C,Ccm36,12
+copic marker 36 set,2021-05-07,90.68,C,Ccm36,34
+copic marker 36 set,2021-05-08,47.2,C,Ccm36,2
+copic marker 36 set,2021-05-09,59.54,C,Ccm36,2
+copic marker 36 set,2021-05-10,91.69,C,Ccm36,6
+copic marker 72 set,2021-04-19,22.19,A,Acm72,12
+copic marker 72 set,2021-04-20,47.72,A,Acm72,23
+copic marker 72 set,2021-04-21,77.56,A,Acm72,4
+copic marker 72 set,2021-04-22,4.13,A,Acm72,56
+copic marker 72 set,2021-04-23,23.77,A,Acm72,4
+copic marker 72 set,2021-04-24,75.4,B,Bcm72,32
+copic marker 72 set,2021-04-25,40.76,B,Bcm72,57
+copic marker 72 set,2021-04-26,83.89,B,Bcm72,32
+copic marker 72 set,2021-05-01,2.51,B,Bcm72,13
+copic marker 72 set,2021-05-02,92.79,B,Bcm72,32
+copic marker 72 set,2021-05-03,48.92,B,Bcm72,65
+copic marker 72 set,2021-05-04,19,B,Bcm72,3
+copic marker 72 set,2021-05-05,85.74,C,Ccm72,84
+copic marker 72 set,2021-05-06,77.08,C,Ccm72,12
+copic marker 72 set,2021-05-07,50.49,C,Ccm72,34
+copic marker 72 set,2021-05-08,79.45,C,Ccm72,2
+copic marker 72 set,2021-05-09,46.19,C,Ccm72,2
+copic marker 72 set,2021-05-10,96.34,C,Ccm72,6
+copic marker 128 set,2021-04-19,12.84,A,Acm128,12
+copic marker 128 set,2021-04-20,10.26,A,Acm128,23
+copic marker 128 set,2021-04-21,28.85,A,Acm128,4
+copic marker 128 set,2021-04-22,95.58,A,Acm128,56
+copic marker 128 set,2021-04-23,20.78,A,Acm128,4
+copic marker 128 set,2021-04-24,9.05,B,Bcm128,32
+copic marker 128 set,2021-04-25,4.97,B,Bcm128,57
+copic marker 128 set,2021-04-26,37.42,B,Bcm128,32
+copic marker 128 set,2021-05-01,10.33,B,Bcm128,13
+copic marker 128 set,2021-05-02,77.01,B,Bcm128,32
+copic marker 128 set,2021-05-03,53.05,B,Bcm128,65
+copic marker 128 set,2021-05-04,99.08,B,Bcm128,3
+copic marker 128 set,2021-05-05,97.12,C,Ccm128,84
+copic marker 128 set,2021-05-06,24.16,C,Ccm128,12
+copic marker 128 set,2021-05-07,98.88,C,Ccm128,34
+copic marker 128 set,2021-05-08,5.36,C,Ccm128,2
+copic marker 128 set,2021-05-09,0.09,C,Ccm128,2
+copic marker 128 set,2021-05-10,65.45,C,Ccm128,6
+prismacolour marker 36 set,2021-04-19,17.89,A,Apm36,12
+prismacolour marker 36 set,2021-04-20,75.83,A,Apm36,23
+prismacolour marker 36 set,2021-04-21,14.75,A,Apm36,4
+prismacolour marker 36 set,2021-04-22,14.88,A,Apm36,56
+prismacolour marker 36 set,2021-04-23,44.76,A,Apm36,4
+prismacolour marker 36 set,2021-04-24,40.53,B,Bpm36,32
+prismacolour marker 36 set,2021-04-25,25.79,B,Bpm36,57
+prismacolour marker 36 set,2021-04-26,24.56,B,Bpm36,32
+prismacolour marker 36 set,2021-05-01,33.99,B,Bpm36,13
+prismacolour marker 36 set,2021-05-02,33.11,B,Bpm36,32
+prismacolour marker 36 set,2021-05-03,48.17,B,Bpm36,65
+prismacolour marker 36 set,2021-05-04,83.23,B,Bpm36,3
+prismacolour marker 36 set,2021-05-05,14.66,C,Cpm36,84
+prismacolour marker 36 set,2021-05-06,16.16,C,Cpm36,12
+prismacolour marker 36 set,2021-05-07,87.86,C,Cpm36,34
+prismacolour marker 36 set,2021-05-08,10.33,C,Cpm36,2
+prismacolour marker 36 set,2021-05-09,70.15,C,Cpm36,2
+prismacolour marker 36 set,2021-05-10,36.86,C,Cpm36,6
+promarker 12 set,2021-04-19,65.21,A,Ap12,12
+promarker 12 set,2021-04-20,99.6,A,Ap12,23
+promarker 12 set,2021-04-21,14.59,A,Ap12,4
+promarker 12 set,2021-04-22,65.06,A,Ap12,56
+promarker 12 set,2021-04-23,52.8,A,Ap12,4
+promarker 12 set,2021-04-24,15.87,B,Bp12,32
+promarker 12 set,2021-04-25,8.99,B,Bp12,57
+promarker 12 set,2021-04-26,76.89,B,Bp12,32
+promarker 12 set,2021-05-01,92.03,B,Bp12,13
+promarker 12 set,2021-05-02,21.14,B,Bp12,32
+promarker 12 set,2021-05-03,8.01,B,Bp12,65
+promarker 12 set,2021-05-04,24.35,B,Bp12,3
+promarker 12 set,2021-05-05,46.3,C,Cp12,84
+promarker 12 set,2021-05-06,25.67,C,Cp12,12
+promarker 12 set,2021-05-07,4.82,C,Cp12,34
+promarker 12 set,2021-05-08,69.3,C,Cp12,2
+promarker 12 set,2021-05-09,13.45,C,Cp12,2
+promarker 12 set,2021-05-10,10.71,C,Cp12,6
+promarker 36 set,2021-04-19,17.59,A,Ap36,12
+promarker 36 set,2021-04-20,10.7,A,Ap36,23
+promarker 36 set,2021-04-21,27.69,A,Ap36,4
+promarker 36 set,2021-04-22,83.11,A,Ap36,56
+promarker 36 set,2021-04-23,91.6,A,Ap36,4
+promarker 36 set,2021-04-24,79.56,B,Bp36,32
+promarker 36 set,2021-04-25,83.33,B,Bp36,57
+promarker 36 set,2021-04-26,34.79,B,Bp36,32
+promarker 36 set,2021-05-01,30.96,B,Bp36,13
+promarker 36 set,2021-05-02,1.79,B,Bp36,32
+promarker 36 set,2021-05-03,57.17,B,Bp36,65
+promarker 36 set,2021-05-04,74.41,B,Bp36,3
+promarker 36 set,2021-05-05,98.97,C,Cp36,84
+promarker 36 set,2021-05-06,44.17,C,Cp36,12
+promarker 36 set,2021-05-07,90.52,C,Cp36,34
+promarker 36 set,2021-05-08,60.58,C,Cp36,2
+promarker 36 set,2021-05-09,52.45,C,Cp36,2
+promarker 36 set,2021-05-10,88.21,C,Cp36,6
