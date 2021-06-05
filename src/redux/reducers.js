@@ -1,5 +1,5 @@
-let defaultGraphData = [{x: 1, y: 2}, {x: 2, y: 3}, {x: 3, y: 4}, {x: 4, y: 5}];
-let defaultTableData = [
+const defaultGraphData = [{x: 1, y: 2}, {x: 2, y: 3}, {x: 3, y: 4}, {x: 4, y: 5}];
+const defaultTableData = [
   {
     "id": 1,
     "name": "TODO",

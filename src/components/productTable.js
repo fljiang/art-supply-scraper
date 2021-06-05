@@ -32,6 +32,7 @@ class ProductTable extends Component {
     const rowEvents = {
       onClick: (e, row, rowIndex) => {
         console.log("clicked on row with index: ${rowIndex}");
+        // this.handleProductID(productID);
       }
     };
 
