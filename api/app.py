@@ -6,6 +6,10 @@ import json
 app = Flask(__name__)
 cors = CORS(app)
 
+@app.route("/")
+def default():
+  return "API WORKING!"
+
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
   df = pd.read_csv("test.csv")
