@@ -78,7 +78,7 @@ cur.close()
 #conn.close()
 
 
-
+'''
 # Querying for products
 #  Example on productID 101
 cur = conn.cursor()
@@ -87,3 +87,4 @@ cur.execute("SELECT * from products")# WHERE productID = {}".format(searchInput)
 rows = cur.fetchall()
 for row in rows:
     print(row)
+'''
