@@ -6,33 +6,81 @@ from datetime import date
 listOfURLs = ["https://www.deserres.ca/en/12-pack-picolo-fineliners-0-4-mm", #available
     "https://www.deserres.ca/en/set-of-120-polychromos-colour-pencils-in-wood-case", #available on sale
     'https://www.deserres.ca/en/golden-acrylic-explorer-14-piece-set', #available
-    'https://www.deserres.ca/en/xl-pad-marker-9x12-70g-100s' #sold out 
+    'https://www.deserres.ca/products/box-set-of-50-extra-soft-pastels?variant=39427443294341' #sold out 
 ]
 
-def availability(soup):
+idDict = {"https://www.deserres.ca/en/12-pack-picolo-fineliners-0-4-mm":200,
+    "https://www.deserres.ca/en/set-of-120-polychromos-colour-pencils-in-wood-case":201,
+    'https://www.deserres.ca/en/golden-acrylic-explorer-14-piece-set':202,
+    'https://www.deserres.ca/en/xl-pad-marker-9x12-70g-100s':203,
+    'https://www.deserres.ca/products/box-set-of-50-extra-soft-pastels?variant=39427443294341':204}
+
+
+def brandName(soup):
     try:
-        return soup.find('p', {'class':'shipping-info stock-days-2'}).text
+        return soup.find('a', {'class':"product__vendor-link"}).text.strip('\n')
     except AttributeError:
-        return soup.find('p', {'class':'shipping-info stock-days-1'}).text
-    
-
-with open('scraped.csv', 'a+', newline='') as csv_file:
-    fieldnames = ['storeName', 'brandName', 'itemName', 'Price', 'Availability', 'Date']
-    writer = DictWriter(csv_file, fieldnames=fieldnames)
-
-    for URL in listOfURLs:
-        page = urlopen(URL)
-        html = page.read().decode('utf-8')
-        soup = BeautifulSoup(html, 'html.parser')
-
-        temp = {}
-        temp['storeName'] = 'DeSerres'
-        temp['brandName'] = soup.find('h2', {'class':'brand'}).text
-        temp['itemName'] = soup.find('h1', {'itemprop':'name'}).text
-        temp['Price'] = soup.find('span', {'class': 'price', 'itemprop':'price'}).text.split('\n')[-1]
-        temp['Availability'] = availability(soup)
-        temp['Date'] = date.today()
-
-        writer.writerow(temp)
-
+        return soup.find('a', {'class':"product__vendor-link"}).text.strip('\n')
         
+    
+'''
+URL = "https://www.deserres.ca/products/studio-xl-oil-paint-set-24-x-20-ml"
+page = urlopen(URL)
+html = page.read().decode('utf-8')
+soup = BeautifulSoup(html, 'html.parser')
+
+print(soup.find('a', {'class':"product__vendor-link"}).text.strip('\n'))
+print(soup.find('h1', {'class':"product__title h3"}).text.strip('\n'))
+print(float(soup.find('span', {'class':"price__value price__value--final"}).text.strip('\n').strip("$")))
+print(soup.find('span', {'class':"availability__label availability__label--in-stock"}).text)
+print(soup.find('div-', {'class':"product__shipping"}).text)
+'''
+
+
+'''
+for URL in listOfURLs:
+    page = urlopen(URL)
+    html = page.read().decode('utf-8')
+    soup = BeautifulSoup(html, 'html.parser')
+    print(URL)
+    temp = {}
+    temp['productID'] = idDict[URL]
+    temp['storeName'] = 'DeSerres'
+    temp['brandName'] = brandName(soup)
+    temp['itemName'] = soup.find('h1', {'class':"product__title h3"}).text.strip('\n')
+    temp['Price'] = float(soup.find('span', {'class':"price__value price__value--final"}).text.strip('\n').strip("$"))
+    temp['Availability'] = soup.find('div', {'class':"availability product__availability"}).text.split('\n')[1]
+    temp['Date'] = date.today()
+    print(temp)
+
+
+'''
+import os 
+import psycopg2 as db
+
+conn = db.connect(host='ec2-35-174-35-242.compute-1.amazonaws.com', 
+    user='tbnywkvrfotgxw', 
+    password='e815e843be1ccfd95f0700c8a3f252f660d9a3124f9e2be8f6837e85f28e9044', 
+    database='d6frtg9f11e0qr', 
+    sslmode = 'require')
+cur = conn.cursor()
+
+for URL in listOfURLs:
+    page = urlopen(URL)
+    html = page.read().decode('utf-8')
+    soup = BeautifulSoup(html, 'html.parser')
+
+    productID = idDict[URL]
+    storeName = "Deserres"
+    brandName = soup.find('a', {'class':"product__vendor-link"}).text.strip('\n')
+    itemName = soup.find('h1', {'class':"product__title h3"}).text.strip('\n')
+    Price = float(soup.find('span', {'class':"price__value price__value--final"}).text.strip('\n').strip("$"))
+    Availability = soup.find('div', {'class':"availability product__availability"}).text
+    Date = date.today()
+
+    cur.execute("INSERT INTO products(productID, storeName, brandName, itemName, Price, Availability, Date) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+    (productID, storeName, brandName, itemName, Price, Availability, Date))
+    conn.commit()
+
+cur.close()
+conn.close()        
