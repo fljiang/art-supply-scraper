@@ -16,9 +16,9 @@ idDict = {"https://www.currys.com/product.htm?Product=SK50200&Source=Category&Ca
 def availability(soup):
     isAvailable = soup.find('td', {'class':"PCContentAddQty"}).text == ''
     if isAvailable:
-        return "No stock"
+        return "Sold Out Online"
     else:
-        return "Available to purchase"
+        return "Available Online"
 
 
 '''
@@ -75,7 +75,7 @@ for URL in listOfURLs:
     conn.commit()
 
 cur.close()
-conn.close()
+#conn.close()
 
 
 
@@ -83,7 +83,7 @@ conn.close()
 #  Example on productID 101
 cur = conn.cursor()
 searchInput = 101
-cur.execute("SELECT * from products WHERE productID = {}".format(searchInput))
+cur.execute("SELECT * from products")# WHERE productID = {}".format(searchInput))
 rows = cur.fetchall()
 for row in rows:
     print(row)
