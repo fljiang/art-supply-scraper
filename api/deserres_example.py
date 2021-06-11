@@ -69,7 +69,7 @@ cur = conn.cursor()
 context = ssl._create_unverified_context()
 
 for URL in listOfURLs:
-    page = urlopen(URL,context)
+    page = urlopen(URL,context=context)
     html = page.read().decode('utf-8')
     soup = BeautifulSoup(html, 'html.parser')
 
