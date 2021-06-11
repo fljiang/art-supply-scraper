@@ -18,13 +18,11 @@ idDict = {
   "https://www.deserres.ca/products/box-set-of-50-extra-soft-pastels?variant=39427443294341": 204
 }
 
-
 def brandName(soup):
   try:
     return soup.find("a", {"class": "product__vendor-link"}).text.strip("\n")
   except AttributeError:
     return soup.find("a", {"class": "product__vendor-link"}).text.strip("\n")
-
 
 """
 URL = "https://www.deserres.ca/products/studio-xl-oil-paint-set-24-x-20-ml"
@@ -55,6 +53,7 @@ for URL in listOfURLs:
     temp["Date"] = date.today()
     print(temp)
 """
+
 import os
 import psycopg2 as db
 import ssl
@@ -63,7 +62,7 @@ conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
   user="tbnywkvrfotgxw",
   password="e815e843be1ccfd95f0700c8a3f252f660d9a3124f9e2be8f6837e85f28e9044",
   database="d6frtg9f11e0qr",
-  sslmode ="require")
+  sslmode="require")
 cur = conn.cursor()
 
 context = ssl._create_unverified_context()

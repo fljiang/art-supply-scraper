@@ -53,7 +53,7 @@ conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
   user="tbnywkvrfotgxw",
   password="e815e843be1ccfd95f0700c8a3f252f660d9a3124f9e2be8f6837e85f28e9044",
   database="d6frtg9f11e0qr",
-  sslmode ="require")
+  sslmode="require")
 cur = conn.cursor()
 
 context = ssl._create_unverified_context()
