@@ -78,7 +78,7 @@ for URL in listOfURLs:
     conn.commit()
 
 cur.close()
-#conn.close()
+conn.close()
 
 
 '''
