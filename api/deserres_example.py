@@ -36,8 +36,8 @@ print(soup.find('span', {'class':"availability__label availability__label--in-st
 print(soup.find('div-', {'class':"product__shipping"}).text)
 '''
 
-
 '''
+
 for URL in listOfURLs:
     page = urlopen(URL)
     html = page.read().decode('utf-8')
@@ -49,7 +49,7 @@ for URL in listOfURLs:
     temp['brandName'] = brandName(soup)
     temp['itemName'] = soup.find('h1', {'class':"product__title h3"}).text.strip('\n')
     temp['Price'] = float(soup.find('span', {'class':"price__value price__value--final"}).text.strip('\n').strip("$"))
-    temp['Availability'] = soup.find('div', {'class':"availability product__availability"}).text.split('\n')[1]
+    temp['Availability'] = soup.find('span', {'class':"availability__label availability__label--in-stock"}).text
     temp['Date'] = date.today()
     print(temp)
 
@@ -78,7 +78,7 @@ for URL in listOfURLs:
     brandName = soup.find('a', {'class':"product__vendor-link"}).text.strip('\n')
     itemName = soup.find('h1', {'class':"product__title h3"}).text.strip('\n')
     Price = float(soup.find('span', {'class':"price__value price__value--final"}).text.strip('\n').strip("$"))
-    Availability = soup.find('div', {'class':"availability product__availability"}).text
+    Availability = soup.find('span', {'class':"availability__label availability__label--in-stock"}).text
     Date = date.today()
 
     cur.execute("INSERT INTO products(productID, storeName, brandName, itemName, Price, Availability, Date) VALUES (%s, %s, %s, %s, %s, %s, %s)",
