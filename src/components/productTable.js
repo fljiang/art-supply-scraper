@@ -38,7 +38,7 @@ class ProductTable extends Component {
 
     return(
       <NewContainer id="table">
-        <BootstrapTable keyField='id' data={ this.props.tableData } columns={ columns } rowEvents={ rowEvents }/>
+        <BootstrapTable keyField="id" data={ this.props.tableData } columns={ columns } rowEvents={ rowEvents }/>
       </NewContainer>
     );
   }
