@@ -4,10 +4,10 @@ from csv import DictWriter
 from datetime import date
 
 listOfURLs = [
-  "https://www.deserres.ca/en/12-pack-picolo-fineliners-0-4-mm", #available
-  "https://www.deserres.ca/en/set-of-120-polychromos-colour-pencils-in-wood-case", #available on sale
-  "https://www.deserres.ca/en/golden-acrylic-explorer-14-piece-set", #available
-  "https://www.deserres.ca/products/box-set-of-50-extra-soft-pastels?variant=39427443294341" #sold out
+  "https://www.deserres.ca/en/12-pack-picolo-fineliners-0-4-mm", # Available
+  "https://www.deserres.ca/en/set-of-120-polychromos-colour-pencils-in-wood-case", # Available on sale
+  "https://www.deserres.ca/en/golden-acrylic-explorer-14-piece-set", # Available
+  "https://www.deserres.ca/products/box-set-of-50-extra-soft-pastels?variant=39427443294341" # Sold out
 ]
 
 idDict = {
@@ -68,7 +68,7 @@ cur = conn.cursor()
 context = ssl._create_unverified_context()
 
 for URL in listOfURLs:
-  page = urlopen(URL,context=context)
+  page = urlopen(URL, context=context)
   html = page.read().decode("utf-8")
   soup = BeautifulSoup(html, "html.parser")
 

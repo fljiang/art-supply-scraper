@@ -24,9 +24,9 @@ def availability(soup):
 """
 ## Writing to static csv.
 
-with open("scraped.csv", "a+", newline="") as csv_file:
+with open("scraped.csv", "a+", newline="") as csvFile:
   fieldnames = ["productID", "storeName", "brandName", "itemName", "Price", "Availability", "Date"]
-  writer = DictWriter(csv_file, fieldnames=fieldnames)
+  writer = DictWriter(csvFile, fieldnames=fieldnames)
 
   for URL in listOfURLs:
     page = urlopen(URL)
@@ -42,13 +42,11 @@ with open("scraped.csv", "a+", newline="") as csv_file:
     temp["Date"] = date.today()
     writer.writerow(temp)
 """
-## Connecting and webscraping into the DB
 
 import os
 import psycopg2 as db
 import ssl
 
-#DB credentials as below
 conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
   user="tbnywkvrfotgxw",
   password="e815e843be1ccfd95f0700c8a3f252f660d9a3124f9e2be8f6837e85f28e9044",
