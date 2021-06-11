@@ -57,6 +57,7 @@ for URL in listOfURLs:
 '''
 import os 
 import psycopg2 as db
+import ssl
 
 conn = db.connect(host='ec2-35-174-35-242.compute-1.amazonaws.com', 
     user='tbnywkvrfotgxw', 
@@ -65,8 +66,10 @@ conn = db.connect(host='ec2-35-174-35-242.compute-1.amazonaws.com',
     sslmode = 'require')
 cur = conn.cursor()
 
+context = ssl._create_unverified_context()
+
 for URL in listOfURLs:
-    page = urlopen(URL)
+    page = urlopen(URL,context)
     html = page.read().decode('utf-8')
     soup = BeautifulSoup(html, 'html.parser')
 
