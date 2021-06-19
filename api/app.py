@@ -26,8 +26,11 @@ def getTableData(searchInput):
     sslmode="require")
 
   cur = conn.cursor()
+  print('first search inpute', searchInput)
   searchInput = searchInput.replace('%20', ' ')
-  cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and date = (select max(date) from products where Itemname = '{}')".format(searchInput,searchInput))
+  print('second', searchInput)
+  '''
+  cur.execute("SELECT DISTINCT * from products WHERE Itemname = {} and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
   rows = cur.fetchall()
   dict = {}
   dict['name'] = rows[0][3]
@@ -38,6 +41,7 @@ def getTableData(searchInput):
   cur.close()
 
   return {"data" : [dict]}
+  '''
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
