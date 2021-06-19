@@ -7,7 +7,8 @@ listOfURLs = [
   "https://www.deserres.ca/en/12-pack-picolo-fineliners-0-4-mm", # Available
   "https://www.deserres.ca/en/set-of-120-polychromos-colour-pencils-in-wood-case", # Available on sale
   "https://www.deserres.ca/en/golden-acrylic-explorer-14-piece-set", # Available
-  "https://www.deserres.ca/products/box-set-of-50-extra-soft-pastels?variant=39427443294341" # Sold out
+  "https://www.deserres.ca/products/box-set-of-50-extra-soft-pastels?variant=39427443294341", # Sold out
+  "https://www.deserres.ca/products/oval-paintbrush-with-a-short-handle?variant=39362011758725"
 ]
 
 idDict = {
@@ -15,7 +16,8 @@ idDict = {
   "https://www.deserres.ca/en/set-of-120-polychromos-colour-pencils-in-wood-case": 201,
   "https://www.deserres.ca/en/golden-acrylic-explorer-14-piece-set": 202,
   "https://www.deserres.ca/en/xl-pad-marker-9x12-70g-100s": 203,
-  "https://www.deserres.ca/products/box-set-of-50-extra-soft-pastels?variant=39427443294341": 204
+  "https://www.deserres.ca/products/box-set-of-50-extra-soft-pastels?variant=39427443294341": 204,
+  "https://www.deserres.ca/products/oval-paintbrush-with-a-short-handle?variant=39362011758725": 205
 }
 
 '''

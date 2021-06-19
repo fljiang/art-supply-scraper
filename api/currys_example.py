@@ -5,12 +5,14 @@ from datetime import date
 
 listOfURLs = [
   "https://www.currys.com/product.htm?Product=SK50200&Source=Category&Category=SAKURA_PIGMA_SENSEI_MARKERS",
-  "https://www.currys.com/product.htm?Product=MUNG12&Source=Category&Category=MUNGYO_OIL_PASTEL_SETS"
+  "https://www.currys.com/product.htm?Product=MUNG12&Source=Category&Category=MUNGYO_OIL_PASTEL_SETS",
+  "https://www.currys.com/catalogpc.htm?Category=CHARCOAL_PENCIL_SET_OF_4"
 ]
 
 idDict = {
   "https://www.currys.com/product.htm?Product=SK50200&Source=Category&Category=SAKURA_PIGMA_SENSEI_MARKERS": 100,
-  "https://www.currys.com/product.htm?Product=MUNG12&Source=Category&Category=MUNGYO_OIL_PASTEL_SETS": 101
+  "https://www.currys.com/product.htm?Product=MUNG12&Source=Category&Category=MUNGYO_OIL_PASTEL_SETS": 101,
+  "https://www.currys.com/catalogpc.htm?Category=CHARCOAL_PENCIL_SET_OF_4": 102
 }
 
 def availability(soup):
