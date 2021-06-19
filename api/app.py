@@ -26,7 +26,9 @@ def default():
 def getTableData(searchInput):
   cur = conn.cursor()
   searchInput = "'" + searchInput.replace('%20', ' ') + "'"
-  return searchInput
+  cur.execute("SELECT DISTINCT * from products WHERE Itemname = {}".format(searchInput))# and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
+  rows = cur.fetchall()
+  return rows
   '''
   cur.execute("SELECT DISTINCT * from products WHERE Itemname = {} and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
   rows = cur.fetchall()
