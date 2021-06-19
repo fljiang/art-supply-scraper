@@ -11,6 +11,11 @@ import os
 import psycopg2 as db
 import ssl
 
+conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
+    user="tbnywkvrfotgxw",
+    password="e815e843be1ccfd95f0700c8a3f252f660d9a3124f9e2be8f6837e85f28e9044",
+    database="d6frtg9f11e0qr",
+    sslmode="require")
 
 @app.route("/")
 def default():
@@ -18,34 +23,6 @@ def default():
 
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
-  conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
-    user="tbnywkvrfotgxw",
-    password="e815e843be1ccfd95f0700c8a3f252f660d9a3124f9e2be8f6837e85f28e9044",
-    database="d6frtg9f11e0qr",
-    sslmode="require")
-
-  cur = conn.cursor()
-  cur.execute("SELECT DISTINCT * from products WHERE searchInput = {}".format(searchInput))
-  rows = cur.fetchall()
-  listOfRows = []
-  i = 1
-  for row in rows:
-    dict = {}
-    dict['x'] = i
-    dict['y'] = float(row[4])
-    i += 1
-    listOfRows.append(dict)
-  cur.close()
-  return {'data': listOfRows}
-  
-  '''
-  #Connect to heroku DB
-  conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
-    user="tbnywkvrfotgxw",
-    password="e815e843be1ccfd95f0700c8a3f252f660d9a3124f9e2be8f6837e85f28e9044",
-    database="d6frtg9f11e0qr",
-    sslmode="require")
-
   cur = conn.cursor()
   searchInput = "'" + searchInput.replace('%20', ' ') + "'"
   
@@ -60,16 +37,10 @@ def getTableData(searchInput):
   cur.close()
 
   return {"data" : [dict]}
-  '''
+  
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
-  conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
-    user="tbnywkvrfotgxw",
-    password="e815e843be1ccfd95f0700c8a3f252f660d9a3124f9e2be8f6837e85f28e9044",
-    database="d6frtg9f11e0qr",
-    sslmode="require")
-
   cur = conn.cursor()
   cur.execute("SELECT DISTINCT * from products WHERE productID = {}".format(productId))
   rows = cur.fetchall()
