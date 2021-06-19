@@ -24,11 +24,10 @@ def default():
 
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
-  return "api route working"
-  '''
   cur = conn.cursor()
   searchInput = "'" + searchInput.replace('%20', ' ') + "'"
-  
+  return searchInput
+  '''
   cur.execute("SELECT DISTINCT * from products WHERE Itemname = {} and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
   rows = cur.fetchall()
   
