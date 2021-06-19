@@ -18,6 +18,27 @@ def default():
 
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
+  conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
+    user="tbnywkvrfotgxw",
+    password="e815e843be1ccfd95f0700c8a3f252f660d9a3124f9e2be8f6837e85f28e9044",
+    database="d6frtg9f11e0qr",
+    sslmode="require")
+
+  cur = conn.cursor()
+  cur.execute("SELECT DISTINCT * from products WHERE searchInput = {}".format(searchInput))
+  rows = cur.fetchall()
+  listOfRows = []
+  i = 1
+  for row in rows:
+    dict = {}
+    dict['x'] = i
+    dict['y'] = float(row[4])
+    i += 1
+    listOfRows.append(dict)
+  cur.close()
+  return {'data': listOfRows}
+  
+  '''
   #Connect to heroku DB
   conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
     user="tbnywkvrfotgxw",
@@ -26,9 +47,9 @@ def getTableData(searchInput):
     sslmode="require")
 
   cur = conn.cursor()
-  searchInput = searchInput.replace('%20', ' ')
+  searchInput = "'" + searchInput.replace('%20', ' ') + "'"
   
-  cur.execute("SELECT DISTINCT * from products WHERE Itemname = 'Pigma Sensei Manga Drawing Set' and date = (select max(date) from products where Itemname = 'Pigma Sensei Manga Drawing Set')")#.format(searchInput,searchInput))
+  cur.execute("SELECT DISTINCT * from products WHERE Itemname = {} and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
   rows = cur.fetchall()
   dict = {}
   dict['name'] = rows[0][3]
@@ -39,7 +60,7 @@ def getTableData(searchInput):
   cur.close()
 
   return {"data" : [dict]}
-  
+  '''
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
