@@ -30,7 +30,7 @@ class ProductTable extends Component {
 
   render() {
     const rowEvents = {
-      onClick: row => {
+      onClick: (e, row) => {
         this.props.setProductId(row.productId);
       }
     };

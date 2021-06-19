@@ -36,7 +36,6 @@ function* setProductId(action) {
   yield put({
     type: "PRODUCT_ID_UPDATED",
     productId: action.productId,
-    graphData: graphData.data
   });
 }
 

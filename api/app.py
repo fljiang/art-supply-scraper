@@ -41,7 +41,6 @@ def getGraphData(productId):
   parsed = json.loads(result)
   for i in parsed["data"]:
     dict = {
-      "productId": i["productId"],
       "date": i["date"],
       "price": i["price"]
     }
