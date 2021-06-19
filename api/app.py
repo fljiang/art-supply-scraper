@@ -25,7 +25,8 @@ def default():
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
   cur = conn.cursor()
-  cur.execute("SELECT DISTINCT * from products WHERE productID = {} and date = (select max(date) from products where productID = {})".format(searchInput,searchInput))
+  searchInput = searchInput.replace("%20", " ")
+  cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and date = (select max(date) from products where Itemname = '{}')".format(searchInput,searchInput))
   rows = cur.fetchall()
   cur.close()
   returnVal = rows[0][2]
