@@ -31,7 +31,7 @@ def getTableData(searchInput):
   cur.close()
   
   returnVal = {}
-  returnVal['name'] = rows[0][3]
+  returnVal['name'] = int(rows[0][3])
   returnVal['productId'] = rows[0][0]
   returnVal['store'] = rows[0][1]
   returnVal['stock'] = rows[0][5]
