@@ -21,23 +21,30 @@ conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
 def default():
   return "API WORKING!"
 
+
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
+  return "api route working"
+  '''
   cur = conn.cursor()
   searchInput = "'" + searchInput.replace('%20', ' ') + "'"
   
   cur.execute("SELECT DISTINCT * from products WHERE Itemname = {} and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
   rows = cur.fetchall()
-  dict = {}
-  dict['name'] = rows[0][3]
-  dict['productId'] = rows[0][0]
-  dict['store'] = rows[0][1]
-  dict['stock'] = rows[0][5]
-  dict['price'] = float(rows[0][4])
+  
+  try:
+    dict = {}
+    dict['name'] = rows[0][3]
+    dict['productId'] = rows[0][0]
+    dict['store'] = rows[0][1]
+    dict['stock'] = rows[0][5]
+    dict['price'] = float(rows[0][4])
+  except:
+    dict = "Query didn't return anything"
   cur.close()
 
   return {"data" : [dict]}
-  
+  '''
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
