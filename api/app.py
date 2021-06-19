@@ -25,10 +25,10 @@ def default():
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
   cur = conn.cursor()
-  cur.execute("SELECT DISTINCT * from products WHERE productID = {}".format(searchInput))# and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
+  cur.execute("SELECT DISTINCT * from products WHERE productID = {} and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
   rows = cur.fetchall()
   cur.close()
-  returnVal = rows[0]
+  returnVal = rows[0][2]
   return {'data':returnVal}
   '''
   cur.execute("SELECT DISTINCT * from products WHERE Itemname = {} and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
