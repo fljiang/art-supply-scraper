@@ -13,7 +13,7 @@ def default():
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
   df = pd.read_csv("test.csv")
-  list = []
+  l = []
   tableDataDf = df.loc[df["name"] == searchInput]
   tableDataDf = tableDataDf.drop_duplicates(subset=["productId"], keep="last")
   result = tableDataDf.to_json(orient="table")
@@ -26,12 +26,15 @@ def getTableData(searchInput):
       "stock": i["stock"],
       "price": i["price"]
     }
-    list.append(dict)
-  return { "data" : list }
+    l.append(dict)
+  return {
+    "data": l
+  }
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
   df = pd.read_csv("test.csv")
+  l = []
   graphdDf = df.loc[df["productId"] == productId]
   graphdDf = graphdDf.tail(5) # 5 most recent prices
   result = graphdDf.to_json(orient="table")
@@ -42,9 +45,9 @@ def getGraphData(productId):
       "date": i["date"],
       "price": i["price"]
     }
-    list.append(dict)
+    l.append(dict)
   return {
-    "data": list
+    "data": l
   }
 
 @app.route("/email/<emailInput>")
