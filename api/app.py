@@ -29,8 +29,14 @@ def getTableData(searchInput):
   cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and date = (select max(date) from products where Itemname = '{}')".format(searchInput,searchInput))
   rows = cur.fetchall()
   cur.close()
-  returnVal = rows[0][2]
-  return {'data':returnVal}
+  
+  returnVal = {}
+  returnVal['name'] = rows[0][3]
+  returnVal['productId'] = rows[0][0]
+  returnVal['store'] = rows[0][1]
+  returnVal['stock'] = rows[0][5]
+  returnVal['price'] = float(rows[0][4])
+  return {'data': [returnVal]}
   '''
   cur.execute("SELECT DISTINCT * from products WHERE Itemname = {} and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
   rows = cur.fetchall()
