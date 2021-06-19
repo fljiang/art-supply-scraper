@@ -26,7 +26,8 @@ def getTableData(searchInput):
     sslmode="require")
 
   cur = conn.cursor()
-  cur.execute("SELECT DISTINCT * from products WHERE Itemname = {} and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
+  searchInput = searchInput.replace('%20', ' ')
+  cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and date = (select max(date) from products where Itemname = '{}')".format(searchInput,searchInput))
   rows = cur.fetchall()
   dict = {}
   dict['name'] = rows[0][3]
