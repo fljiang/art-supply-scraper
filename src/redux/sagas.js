@@ -31,11 +31,11 @@ function* setSearchInput(action) {
 
 function* setProductId(action) {
   const graphData = yield call(getGraphDataBackend, action.productId);
-  console.log(graphData.data);
 
   yield put({
     type: "PRODUCT_ID_UPDATED",
     productId: action.productId,
+    graphData: graphData.data
   });
 }
 

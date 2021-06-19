@@ -22,7 +22,6 @@ def availability(soup):
   else:
     return "Available Online"
 
-
 """
 ## Writing to static csv.
 

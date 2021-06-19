@@ -41,22 +41,21 @@ print(soup.find("span", {"class": "availability__label availability__label--in-s
 print(soup.find("div-", {"class": "product__shipping"}).text)
 """
 
-
 """
 for URL in listOfURLs:
-    page = urlopen(URL)
-    html = page.read().decode("utf-8")
-    soup = BeautifulSoup(html, "html.parser")
-    print(URL)
-    temp = {}
-    temp['productID'] = idDict[URL]
-    temp['storeName'] = 'DeSerres'
-    temp['brandName'] = brandName(soup)
-    temp['itemName'] = soup.find('h1', {'class':"product__title h3"}).text.strip('\n')
-    temp['Price'] = float(soup.find('span', {'class':"price__value price__value--final"}).text.strip('\n').strip("$"))
-    temp['Availability'] = soup.find('span', {'class':"availability__label availability__label--in-stock"}).text
-    temp['Date'] = date.today()
-    print(temp)
+  page = urlopen(URL)
+  html = page.read().decode("utf-8")
+  soup = BeautifulSoup(html, "html.parser")
+  print(URL)
+  temp = {}
+  temp['productID'] = idDict[URL]
+  temp['storeName'] = 'DeSerres'
+  temp['brandName'] = brandName(soup)
+  temp['itemName'] = soup.find('h1', {'class':"product__title h3"}).text.strip('\n')
+  temp['Price'] = float(soup.find('span', {'class':"price__value price__value--final"}).text.strip('\n').strip("$"))
+  temp['Availability'] = soup.find('span', {'class':"availability__label availability__label--in-stock"}).text
+  temp['Date'] = date.today()
+  print(temp)
 """
 
 import os
@@ -89,6 +88,6 @@ for URL in listOfURLs:
   conn.commit()
 
 cur.close()
-conn.close()        
+conn.close()
 
 print("DeSerres' products have been webscraped")
