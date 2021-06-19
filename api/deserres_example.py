@@ -18,11 +18,13 @@ idDict = {
   "https://www.deserres.ca/products/box-set-of-50-extra-soft-pastels?variant=39427443294341": 204
 }
 
+'''
 def brandName(soup):
   try:
     return soup.find("a", {"class": "product__vendor-link"}).text.strip("\n")
   except AttributeError:
     return soup.find("a", {"class": "product__vendor-link"}).text.strip("\n")
+'''
 
 """
 URL = "https://www.deserres.ca/products/studio-xl-oil-paint-set-24-x-20-ml"
@@ -73,16 +75,18 @@ for URL in listOfURLs:
   html = page.read().decode("utf-8")
   soup = BeautifulSoup(html, "html.parser")
 
-    productID = idDict[URL]
-    storeName = "Deserres"
-    brandName = soup.find('a', {'class':"product__vendor-link"}).text.strip('\n')
-    itemName = soup.find('h1', {'class':"product__title h3"}).text.strip('\n')
-    Price = float(soup.find('span', {'class':"price__value price__value--final"}).text.strip('\n').strip("$"))
-    Availability = soup.find('span', {'class':"availability__label availability__label--in-stock"}).text
-    Date = date.today()
+  productID = idDict[URL]
+  storeName = "Deserres"
+  brandName = soup.find('a', {'class':"product__vendor-link"}).text.strip('\n')
+  itemName = soup.find('h1', {'class':"product__title h3"}).text.strip('\n')
+  Price = float(soup.find('span', {'class':"price__value price__value--final"}).text.strip('\n').strip("$"))
+  Availability = soup.find('span', {'class':"availability__label availability__label--in-stock"}).text
+  Date = date.today()
 
   cur.execute("INSERT INTO products(productID, storeName, brandName, itemName, Price, Availability, Date) VALUES (%s, %s, %s, %s, %s, %s, %s)", (productID, storeName, brandName, itemName, Price, Availability, Date))
   conn.commit()
 
 cur.close()
 conn.close()        
+
+print("DeSerres' products have been webscraped")

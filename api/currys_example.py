@@ -75,14 +75,4 @@ for URL in listOfURLs:
 cur.close()
 conn.close()
 
-
-"""
-# Querying for products
-# Example on productID 101
-cur = conn.cursor()
-searchInput = 101
-cur.execute("SELECT * from products")# WHERE productID = {}".format(searchInput))
-rows = cur.fetchall()
-for row in rows:
-  print(row)
-"""
+print("Curry's products have been webscraped")
