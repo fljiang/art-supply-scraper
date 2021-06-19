@@ -29,7 +29,7 @@ def getTableData(searchInput):
   rows = cur.fetchall()
   cur.close()
   returnVal = rows[0]
-  return returnVal
+  return {'data':returnVal}
   '''
   cur.execute("SELECT DISTINCT * from products WHERE Itemname = {} and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
   rows = cur.fetchall()
