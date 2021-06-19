@@ -5,7 +5,7 @@ export const setSearchInput = (searchInput) => {
   }
 }
 
-export const setproductId = (productId) => {
+export const setProductId = (productId) => {
   return {
     type: "SET_PRODUCT_ID",
     productId

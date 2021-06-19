@@ -26,6 +26,7 @@ def default():
 
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
+<<<<<<< HEAD
   #Connect to heroku DB
   conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
     user="tbnywkvrfotgxw",
@@ -67,6 +68,44 @@ def getGraphData(productId):
     listOfRows.append(dict)
 
   return {'data': listOfRows}
+=======
+  df = pd.read_csv("test.csv")
+  l = []
+  tableDataDf = df.loc[df["name"] == searchInput]
+  tableDataDf = tableDataDf.drop_duplicates(subset=["productId"], keep="last")
+  result = tableDataDf.to_json(orient="table")
+  parsed = json.loads(result)
+  for i in parsed["data"]:
+    dict = {
+      "name": i["name"],
+      "productId": i["productId"],
+      "store": i["store"],
+      "stock": i["stock"],
+      "price": i["price"]
+    }
+    l.append(dict)
+  return {
+    "data": l
+  }
+
+@app.route("/graph/<productId>")
+def getGraphData(productId):
+  df = pd.read_csv("test.csv")
+  l = []
+  graphdDf = df.loc[df["productId"] == productId]
+  graphdDf = graphdDf.tail(5) # 5 most recent prices
+  result = graphdDf.to_json(orient="table")
+  parsed = json.loads(result)
+  for i in parsed["data"]:
+    dict = {
+      "date": i["date"],
+      "price": i["price"]
+    }
+    l.append(dict)
+  return {
+    "data": l
+  }
+>>>>>>> 05e951f01f79d0e90911cdc71c85e711af933f0a
 
 @app.route("/email/<emailInput>")
 def postEmail(email):

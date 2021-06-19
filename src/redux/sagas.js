@@ -1,7 +1,8 @@
 import { put, select, all, call, takeLatest } from "redux-saga/effects";
 import {
-  getData,
-  postEmail
+  getTableDataBackend,
+  getGraphDataBackend,
+  postEmailBackend
 } from "../api";
 
 export const getGraphData = state => state.graphData;
@@ -10,15 +11,15 @@ export const getRecentSearches = state => state.recentSearches;
 
 function* setSearchInput(action) {
   let newRecentSearches = yield select(getRecentSearches);
-  const currIndex = newRecentSearches.length;
 
-  for (let i = currIndex; i > 0; i--) {
+  // Shift list
+  for (let i = newRecentSearches.length; i > 0; i--) {
     newRecentSearches[i] = newRecentSearches[i - 1];
   }
 
   newRecentSearches[0] = action.searchInput;
   newRecentSearches = newRecentSearches.slice(0, 3);
-  const tableData = yield call(getData, action.searchInput);
+  const tableData = yield call(getTableDataBackend, action.searchInput);
 
   yield put({
     type: "SEARCH_INPUT_UPDATED",
@@ -28,11 +29,13 @@ function* setSearchInput(action) {
   });
 }
 
-function* setproductId(action) {
-  console.log("here");
+function* setProductId(action) {
+  const graphData = yield call(getGraphDataBackend, action.productId);
+  console.log(graphData.data);
 
   yield put({
     type: "PRODUCT_ID_UPDATED",
+    productId: action.productId,
   });
 }
 
@@ -46,7 +49,7 @@ function* setEmailInput(action) {
 
 function* appWatcher() {
   yield takeLatest("SET_SEARCH_INPUT", setSearchInput);
-  yield takeLatest("SET_PRODUCT_ID", setproductId);
+  yield takeLatest("SET_PRODUCT_ID", setProductId);
   yield takeLatest("SET_EMAIL_INPUT", setEmailInput);
 }
 
