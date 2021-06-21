@@ -26,50 +26,40 @@ def default():
 def getTableData(searchInput):
   cur = conn.cursor()
   searchInput = searchInput.replace("%20", " ")
-  cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and date = (select max(date) from products where Itemname = '{}')".format(searchInput,searchInput))
-  rows = cur.fetchall()
-  cur.close()
-  
-  returnVal = {}
-  returnVal['name'] = rows[0][3]
-  returnVal['productId'] = int(rows[0][0])
-  returnVal['store'] = rows[0][1]
-  returnVal['stock'] = rows[0][5]
-  returnVal['price'] = float(rows[0][4])
-  return {'data': [returnVal]}
-  '''
-  cur.execute("SELECT DISTINCT * from products WHERE Itemname = {} and date = (select max(date) from products where Itemname = {})".format(searchInput,searchInput))
-  rows = cur.fetchall()
-  
   try:
-    dict = {}
-    dict['name'] = rows[0][3]
-    dict['productId'] = rows[0][0]
-    dict['store'] = rows[0][1]
-    dict['stock'] = rows[0][5]
-    dict['price'] = float(rows[0][4])
-  except:
-    dict = "Query didn't return anything"
-  cur.close()
+    cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and date = (select max(date) from products where Itemname = '{}')".format(searchInput,searchInput))
+    rows = cur.fetchall()
+    cur.close()
+  
+    returnVal = {}
+    returnVal['name'] = rows[0][3]
+    returnVal['productId'] = int(rows[0][0])
+    returnVal['store'] = rows[0][1]
+    returnVal['stock'] = rows[0][5]
+    returnVal['price'] = float(rows[0][4])
+    return {'data': [returnVal]}
+  except: #couldnt find in DB
+    return {'data': ['could not find product']}
 
-  return {"data" : [dict]}
-  '''
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
   cur = conn.cursor()
   cur.execute("SELECT DISTINCT * from products WHERE productID = {}".format(productId))
   rows = cur.fetchall()
-  listOfRows = []
-  i = 1
-  for row in rows:
-    dict = {}
-    dict['x'] = i
-    dict['y'] = float(row[4])
-    i += 1
-    listOfRows.append(dict)
-  cur.close()
-  return {'data': listOfRows}
+  try:
+    listOfRows = []
+    i = 1
+    for row in rows:
+      dict = {}
+      dict['x'] = i
+      dict['y'] = float(row[4])
+      i += 1
+      listOfRows.append(dict)
+    cur.close()
+    return {'data': listOfRows}
+  except:
+    return {'data': ['could not find product']}
 
 @app.route("/email/<emailInput>")
 def postEmail(email):
