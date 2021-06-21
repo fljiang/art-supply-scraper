@@ -1,4 +1,4 @@
-from urllib.request import urlopen, Request
+from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from csv import DictWriter
 from datetime import date
