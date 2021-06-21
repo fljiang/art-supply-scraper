@@ -29,7 +29,7 @@ const initialState = {
   recentSearches: [],
   searchInput: "copic marker",
   searchOptions: [
-    {name: "copic marker 36 set"},
+    {name: "Box Set of 50 Extra Soft Pastels"},
     {name: "copic marker 72 set"},
     {name: "copic marker 128 set"},
     {name: "prismacolour marker 36 set"},
