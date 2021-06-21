@@ -20,43 +20,6 @@ idDict = {
   "https://www.deserres.ca/products/oval-paintbrush-with-a-short-handle?variant=39362011758725": 205
 }
 
-'''
-def brandName(soup):
-  try:
-    return soup.find("a", {"class": "product__vendor-link"}).text.strip("\n")
-  except AttributeError:
-    return soup.find("a", {"class": "product__vendor-link"}).text.strip("\n")
-'''
-
-"""
-URL = "https://www.deserres.ca/products/studio-xl-oil-paint-set-24-x-20-ml"
-page = urlopen(URL)
-html = page.read().decode("utf-8")
-soup = BeautifulSoup(html, "html.parser")
-
-print(soup.find("a", {"class": "product__vendor-link"}).text.strip("\n"))
-print(soup.find("h1", {"class": "product__title h3"}).text.strip("\n"))
-print(float(soup.find("span", {"class": "price__value price__value--final"}).text.strip("\n").strip("$")))
-print(soup.find("span", {"class": "availability__label availability__label--in-stock"}).text)
-print(soup.find("div-", {"class": "product__shipping"}).text)
-"""
-
-"""
-for URL in listOfURLs:
-  page = urlopen(URL)
-  html = page.read().decode("utf-8")
-  soup = BeautifulSoup(html, "html.parser")
-  print(URL)
-  temp = {}
-  temp['productID'] = idDict[URL]
-  temp['storeName'] = 'DeSerres'
-  temp['brandName'] = brandName(soup)
-  temp['itemName'] = soup.find('h1', {'class':"product__title h3"}).text.strip('\n')
-  temp['Price'] = float(soup.find('span', {'class':"price__value price__value--final"}).text.strip('\n').strip("$"))
-  temp['Availability'] = soup.find('span', {'class':"availability__label availability__label--in-stock"}).text
-  temp['Date'] = date.today()
-  print(temp)
-"""
 
 import os
 import psycopg2 as db
@@ -78,10 +41,10 @@ for URL in listOfURLs:
 
   productID = idDict[URL]
   storeName = "Deserres"
-  brandName = soup.find('a', {'class': "product__vendor-link"}).text.strip('\n')
-  itemName = soup.find('h1', {'class': "product__title h3"}).text.strip('\n')
-  Price = float(soup.find('span', {'class': "price__value price__value--final"}).text.strip('\n').strip("$"))
-  Availability = soup.find('span', {'class': "availability__label availability__label--in-stock"}).text
+  brandName = soup.find("a", {"class": "product__vendor-link"}).text.strip("\n")
+  itemName = soup.find("h1", {"class": "product__title h3"}).text.strip("\n")
+  Price = float(soup.find("span", {"class": "price__value price__value--final"}).text.strip("\n").strip("$"))
+  Availability = soup.find("span", {"class": "availability__label availability__label--in-stock"}).text
   Date = date.today()
 
   cur.execute("INSERT INTO products(productID, storeName, brandName, itemName, Price, Availability, Date) VALUES (%s, %s, %s, %s, %s, %s, %s)", (productID, storeName, brandName, itemName, Price, Availability, Date))
