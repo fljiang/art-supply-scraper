@@ -30,7 +30,7 @@ def getTableData(searchInput):
     cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and date = (select max(date) from products where Itemname = '{}')".format(searchInput,searchInput))
     rows = cur.fetchall()
     cur.close()
-  
+
     returnVal = {}
     returnVal['name'] = rows[0][3]
     returnVal['productId'] = int(rows[0][0])
@@ -40,7 +40,6 @@ def getTableData(searchInput):
     return {'data': [returnVal]}
   except: #couldnt find in DB
     return {'data': ['could not find product']}
-
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):

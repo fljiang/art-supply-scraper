@@ -78,10 +78,10 @@ for URL in listOfURLs:
 
   productID = idDict[URL]
   storeName = "Deserres"
-  brandName = soup.find('a', {'class':"product__vendor-link"}).text.strip('\n')
-  itemName = soup.find('h1', {'class':"product__title h3"}).text.strip('\n')
-  Price = float(soup.find('span', {'class':"price__value price__value--final"}).text.strip('\n').strip("$"))
-  Availability = soup.find('span', {'class':"availability__label availability__label--in-stock"}).text
+  brandName = soup.find('a', {'class': "product__vendor-link"}).text.strip('\n')
+  itemName = soup.find('h1', {'class': "product__title h3"}).text.strip('\n')
+  Price = float(soup.find('span', {'class': "price__value price__value--final"}).text.strip('\n').strip("$"))
+  Availability = soup.find('span', {'class': "availability__label availability__label--in-stock"}).text
   Date = date.today()
 
   cur.execute("INSERT INTO products(productID, storeName, brandName, itemName, Price, Availability, Date) VALUES (%s, %s, %s, %s, %s, %s, %s)", (productID, storeName, brandName, itemName, Price, Availability, Date))
