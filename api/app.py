@@ -32,14 +32,14 @@ def getTableData(searchInput):
     cur.close()
 
     returnVal = {}
-    returnVal['name'] = rows[0][3]
-    returnVal['productId'] = int(rows[0][0])
-    returnVal['store'] = rows[0][1]
-    returnVal['stock'] = rows[0][5]
-    returnVal['price'] = float(rows[0][4])
-    return {'data': [returnVal]}
+    returnVal["name"] = rows[0][3]
+    returnVal["productId"] = int(rows[0][0])
+    returnVal["store"] = rows[0][1]
+    returnVal["stock"] = rows[0][5]
+    returnVal["price"] = float(rows[0][4])
+    return {"data": [returnVal]}
   except: # Couldnt find product
-    return {'data': ['could not find product']}
+    return {"data": ["could not find product"]}
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
@@ -51,14 +51,14 @@ def getGraphData(productId):
     i = 1
     for row in rows:
       dict = {}
-      dict['x'] = i
-      dict['y'] = float(row[4])
+      dict["x"] = i
+      dict["y"] = float(row[4])
       i += 1
       listOfRows.append(dict)
     cur.close()
-    return {'data': listOfRows}
+    return {"data": listOfRows}
   except:
-    return {'data': ['could not find product']}
+    return {"data": ["could not find product"]}
 
 @app.route("/email/<emailInput>")
 def postEmail(email):
