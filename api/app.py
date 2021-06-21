@@ -38,7 +38,7 @@ def getTableData(searchInput):
     returnVal['stock'] = rows[0][5]
     returnVal['price'] = float(rows[0][4])
     return {'data': [returnVal]}
-  except: #couldnt find in DB
+  except: # Couldnt find product
     return {'data': ['could not find product']}
 
 @app.route("/graph/<productId>")
