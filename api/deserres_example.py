@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from csv import DictWriter
 from datetime import date
 
-listOfURLs = [
+urls = [
   "https://www.deserres.ca/en/12-pack-picolo-fineliners-0-4-mm", # Available
   "https://www.deserres.ca/en/set-of-120-polychromos-colour-pencils-in-wood-case", # Available on sale
   "https://www.deserres.ca/en/golden-acrylic-explorer-14-piece-set", # Available
@@ -20,7 +20,6 @@ idDict = {
   "https://www.deserres.ca/products/oval-paintbrush-with-a-short-handle?variant=39362011758725": 205
 }
 
-
 import os
 import psycopg2 as db
 import ssl
@@ -34,24 +33,24 @@ cur = conn.cursor()
 
 context = ssl._create_unverified_context()
 
-for URL in listOfURLs:
-  page = urlopen(URL, context=context)
+for url in urls:
+  page = urlopen(url, context=context)
   html = page.read().decode("utf-8")
   soup = BeautifulSoup(html, "html.parser")
 
-  productID = idDict[URL]
+  productId = idDict[url]
   storeName = "Deserres"
   brandName = soup.find("a", {"class": "product__vendor-link"}).text.strip("\n")
   itemName = soup.find("h1", {"class": "product__title h3"}).text.strip("\n")
-  Price = float(soup.find("span", {"class": "price__value price__value--final"}).text.strip("\n").strip("$"))
-  Availability = soup.find("span", {"class": "availability__label availability__label--in-stock"}).text
-  Date = date.today()
+  price = float(soup.find("span", {"class": "price__value price__value--final"}).text.strip("\n").strip("$"))
+  stock = soup.find("span", {"class": "availability__label availability__label--in-stock"}).text
+  dateToday = date.today()
 
-  cur.execute("SELECT DISTINCT * from products WHERE productID = {} and date = (select max(date) from products where productID = {})".format(productID,productID))
+  cur.execute("SELECT DISTINCT * from products WHERE productID = {} and date = (select max(date) from products where productID = {})".format(productId, productId))
   rows = cur.fetchall()
-  
-  Pricereducedfromprevday = 'Yes' if Price < rows[0][4] else 'No'
-  cur.execute("INSERT INTO products(productID, storeName, brandName, itemName, Price, Availability, Date, Pricereducedfromprevday) VALUES (%s, %s, %s, %s, %s, %s, %s,%s)", (productID, storeName, brandName, itemName, Price, Availability, Date,Pricereducedfromprevday))
+
+  newSale = "Yes" if price < rows[0][4] else "No"
+  cur.execute("INSERT INTO products(productID, storeName, brandName, itemName, price, stock, dateToday, newSale) VALUES (%s, %s, %s, %s, %s, %s, %s,%s)", (productID, storeName, brandName, itemName, price, stock, dateToday, newSale))
   conn.commit()
 
 cur.close()
