@@ -69,8 +69,11 @@ for URL in listOfURLs:
   Price = float(soup.find_all("td", {"class": "PCContentYourPrc"})[1].text.strip("$"))
   Availability = availability(soup)
   Date = date.today()
-
-  cur.execute("INSERT INTO products(productID, storeName, brandName, itemName, Price, Availability, Date) VALUES (%s, %s, %s, %s, %s, %s, %s)", (productID, storeName, brandName, itemName, Price, Availability, Date))
+  cur.execute("SELECT DISTINCT * from products WHERE productID = {} and date = (select max(date) from products where productID = {})".format(productID,productID))
+  rows = cur.fetchall()
+  
+  Pricereducedfromprevday = 'Yes' if Price < rows[0][4] else 'No'
+  cur.execute("INSERT INTO products(productID, storeName, brandName, itemName, Price, Availability, Date, Pricereducedfromprevday) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (productID, storeName, brandName, itemName, Price, Availability, Date, Pricereducedfromprevday))
   conn.commit()
 
 cur.close()
