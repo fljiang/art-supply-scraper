@@ -29,12 +29,13 @@ const initialState = {
   recentSearches: [],
   searchInput: "copic marker",
   searchOptions: [
-    {name: "Box Set of 50 Extra Soft Pastels"},
-    {name: "copic marker 72 set"},
-    {name: "copic marker 128 set"},
-    {name: "prismacolour marker 36 set"},
-    {name: "promarker 12 set"},
-    {name: "promarker 36 set"}
+    {name: "Pigma Sensei Manga Drawing Set"},
+    {name: "Oil Pastel Set of 12 Standard Assortment"},
+    {name: "Charcoal Pencil Set - 4 pencil pack"},
+    {name: "Set of 120 Polychromos Colour Pencils in Wood Case"},
+    {name: "Golden Acrylic Explorer 14-Piece Set"},
+    {name: "Oval paintbrush with a short handle"},
+    {name: "Box Set of 50 Extra Soft Pastels"}
   ],
   tableData: defaultTableData,
 
