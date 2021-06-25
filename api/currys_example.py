@@ -8,16 +8,16 @@ idDict = {
   "https://www.currys.com/product.htm?Product=SK50200&Source=Category&Category=SAKURA_PIGMA_SENSEI_MARKERS": 100,
   "https://www.currys.com/product.htm?Product=MUNG12&Source=Category&Category=MUNGYO_OIL_PASTEL_SETS": 101,
   "https://www.currys.com/catalogpc.htm?Category=CHARCOAL_PENCIL_SET_OF_4": 102,
-  "https://www.currys.com/catalogpc.htm?Category=WINSOR_NEWTON_FINELINER&NBReset=4":103,
-  "https://www.currys.com/product.htm?Product=SVC16202PK&Source=Category&Category=CURRYS_SUPER_VALUE_CANVAS_PACK":104,
-  "https://www.currys.com/product.htm?Product=VC06062PK&Source=Category&Category=VALUE_CANVAS_PACK_REGULAR":105,
-  "https://www.currys.com/product.htm?Product=MADC10&Source=Category&Category=BLACKBOARD_CHALK":106,
-  "https://www.currys.com/product.htm?Product=MUNG12&Source=Category&Category=MUNGYO_OIL_PASTEL_SETS":107,
-  "https://www.currys.com/product.htm?Product=FA8683&Source=Category&Category=KOHINOOR_CHARCOAL_BLOCKS_6PACK":108,
-  "https://www.currys.com/product.htm?Product=ACHGR&Source=Category&Category=ART_CHUNKY_CHARCOAL":109,
-  "https://www.currys.com/product.htm?Product=WN0290068&Source=Category&Category=WINSOR_NEWTON_FINELINER":110,
-  "https://www.currys.com/product.htm?Product=HGD410&Source=Category&Category=HOLBEIN_ACRYLA_GOUACHE":111,
-  "https://www.currys.com/product.htm?Product=GRM11180&Source=Category&Category=M_GRAHAM_ARTISTS_OIL_PAINT":112
+  "https://www.currys.com/catalogpc.htm?Category=WINSOR_NEWTON_FINELINER&NBReset=4": 103,
+  "https://www.currys.com/product.htm?Product=SVC16202PK&Source=Category&Category=CURRYS_SUPER_VALUE_CANVAS_PACK": 104,
+  "https://www.currys.com/product.htm?Product=VC06062PK&Source=Category&Category=VALUE_CANVAS_PACK_REGULAR": 105,
+  "https://www.currys.com/product.htm?Product=MADC10&Source=Category&Category=BLACKBOARD_CHALK": 106,
+  "https://www.currys.com/product.htm?Product=MUNG12&Source=Category&Category=MUNGYO_OIL_PASTEL_SETS": 107,
+  "https://www.currys.com/product.htm?Product=FA8683&Source=Category&Category=KOHINOOR_CHARCOAL_BLOCKS_6PACK": 108,
+  "https://www.currys.com/product.htm?Product=ACHGR&Source=Category&Category=ART_CHUNKY_CHARCOAL": 109,
+  "https://www.currys.com/product.htm?Product=WN0290068&Source=Category&Category=WINSOR_NEWTON_FINELINER": 110,
+  "https://www.currys.com/product.htm?Product=HGD410&Source=Category&Category=HOLBEIN_ACRYLA_GOUACHE": 111,
+  "https://www.currys.com/product.htm?Product=GRM11180&Source=Category&Category=M_GRAHAM_ARTISTS_OIL_PAINT": 112
 }
 
 def availability(soup):
