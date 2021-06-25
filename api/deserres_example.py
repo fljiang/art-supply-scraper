@@ -3,28 +3,25 @@ from bs4 import BeautifulSoup
 from csv import DictWriter
 from datetime import date
 
-
-
 idDict = {
   "https://www.deserres.ca/en/12-pack-picolo-fineliners-0-4-mm": 200,
   "https://www.deserres.ca/en/set-of-120-polychromos-colour-pencils-in-wood-case": 201,
   "https://www.deserres.ca/en/golden-acrylic-explorer-14-piece-set": 202,
   "https://www.deserres.ca/products/box-set-of-50-extra-soft-pastels?variant=39427443294341": 204,
   "https://www.deserres.ca/products/oval-paintbrush-with-a-short-handle?variant=39362011758725": 205,
-  "https://www.deserres.ca/products/6-pack-copic-sketch-markers-skin-tones-1?variant=39427441098885":206,
-  "https://www.deserres.ca/products/12-pack-pitt-pastel-pencils?variant=39426411790469":207,
-  "https://www.deserres.ca/products/castell-9000-praphite-designer-pencils-set-of-12?variant=39426408218757":208,
-  "https://www.deserres.ca/products/set-of-24-lumograph-graphite-pencils?variant=39426425225349":209,
-  "https://www.deserres.ca/products/boar-bristled-oval-paintbrush?variant=39362519990405":210,
-  "https://www.deserres.ca/products/36-pack-copic-sketch-markers-basic?variant=39426416935045":211,
-  "https://www.deserres.ca/products/copic-ciao-markers-12-piece-basic-set?variant=39426416705669":212,
+  "https://www.deserres.ca/products/6-pack-copic-sketch-markers-skin-tones-1?variant=39427441098885": 206,
+  "https://www.deserres.ca/products/12-pack-pitt-pastel-pencils?variant=39426411790469": 207,
+  "https://www.deserres.ca/products/castell-9000-praphite-designer-pencils-set-of-12?variant=39426408218757": 208,
+  "https://www.deserres.ca/products/set-of-24-lumograph-graphite-pencils?variant=39426425225349": 209,
+  "https://www.deserres.ca/products/boar-bristled-oval-paintbrush?variant=39362519990405": 210,
+  "https://www.deserres.ca/products/36-pack-copic-sketch-markers-basic?variant=39426416935045": 211,
+  "https://www.deserres.ca/products/copic-ciao-markers-12-piece-basic-set?variant=39426416705669": 212,
   "https://www.deserres.ca/products/copic-sketch-markers-set-of-6-perfect-primary-colours?variant=39426417164421": 213,
-  "https://www.deserres.ca/products/cotman-watercolor-sketchers-pocket-box?variant=39426304344197":215,
-  "https://www.deserres.ca/products/24-colour-watercolour-set?variant=39426298577029":216,
-  "https://www.deserres.ca/products/32-piece-pwc-extra-fine-watercolour-set?variant=39426656108677":217,
-  "https://www.deserres.ca/products/studio-xl-oil-paint-set-24-x-20-ml?variant=39426298806405":221,
-  "https://www.deserres.ca/products/essentials-oil-paint-set-24-x-12-ml?variant=39427398205573":222
-
+  "https://www.deserres.ca/products/cotman-watercolor-sketchers-pocket-box?variant=39426304344197": 215,
+  "https://www.deserres.ca/products/24-colour-watercolour-set?variant=39426298577029": 216,
+  "https://www.deserres.ca/products/32-piece-pwc-extra-fine-watercolour-set?variant=39426656108677": 217,
+  "https://www.deserres.ca/products/studio-xl-oil-paint-set-24-x-20-ml?variant=39426298806405": 221,
+  "https://www.deserres.ca/products/essentials-oil-paint-set-24-x-12-ml?variant=39427398205573": 222
 }
 
 import os
