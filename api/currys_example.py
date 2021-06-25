@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 from csv import DictWriter
 from datetime import date
 
-
 idDict = {
   "https://www.currys.com/product.htm?Product=SK50200&Source=Category&Category=SAKURA_PIGMA_SENSEI_MARKERS": 100,
   "https://www.currys.com/product.htm?Product=MUNG12&Source=Category&Category=MUNGYO_OIL_PASTEL_SETS": 101,
