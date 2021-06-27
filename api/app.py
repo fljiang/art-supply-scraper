@@ -63,22 +63,19 @@ def getGraphData(productId):
 
 @app.route("/email/<emailInput>")
 def postEmail(emailInput):
+  session = smtplib.SMTP("smtp.gmail.com", 587) # Use gmail with port
+  session.starttls() # Enable security
+  email = "Put email here" 
+  password = "Put password here"
+  session.login(email, password) 
+  sender = emailInput
+  receivers = [emailInput]
+  message = "Put your message here"
 
-	session = smtplib.SMTP('smtp.gmail.com', 587) #use gmail with port
-	session.starttls() #enable security
-	email = "Put email here" 
-	password = "Put password here"
-	session.login(email, password) #login with mail_id and password
-
-	sender = emailInput
-	receivers = [emailInput]
-
-	message = "Put your message here"
-
-	try:
-		smtpObj = smtplib.SMTP('localhost')
-		smtpObj.sendmail(sender, receivers, message)
-		return "Successful"
-	except Exception as e:
-		print(e)
-		return {"Error":e}
+  try:
+    smtpObj = smtplib.SMTP("localhost")
+    smtpObj.sendmail(sender, receivers, message)
+    return "Successful"
+  except Exception as e:
+    print(e)
+    return {"Error": e}
