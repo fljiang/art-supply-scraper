@@ -9,3 +9,7 @@ Todo:
 - enable email notifications
 
 - update favorites dropdown
+
+- create generic name in catalog
+
+- expand catalog
