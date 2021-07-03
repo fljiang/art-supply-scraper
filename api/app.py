@@ -2,7 +2,6 @@ from flask import Flask
 from flask_cors import CORS
 import pandas as pd
 import json
-import smtplib
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -28,13 +27,13 @@ def getTableData(searchInput):
   cur = conn.cursor()
   searchInput = searchInput.replace("%20", " ")
   try:
-    cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and date = (select max(date) from products where Itemname = '{}')".format(searchInput,searchInput))
+    cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and dateToday  = (select max(dateToday) from products where Itemname = '{}')".format(searchInput,searchInput))
     rows = cur.fetchall()
     cur.close()
 
     returnVal = {}
     returnVal["name"] = rows[0][3]
-    returnVal["productId"] = int(rows[0][0])
+    returnVal["productID"] = int(rows[0][0])
     returnVal["store"] = rows[0][1]
     returnVal["stock"] = rows[0][5]
     returnVal["price"] = float(rows[0][4])
@@ -62,20 +61,5 @@ def getGraphData(productId):
     return {"data": ["could not find product"]}
 
 @app.route("/email/<emailInput>")
-def postEmail(emailInput):
-  session = smtplib.SMTP("smtp.gmail.com", 587) # Use gmail with port
-  session.starttls() # Enable security
-  email = "Put email here" 
-  password = "Put password here"
-  session.login(email, password) 
-  sender = emailInput
-  receivers = [emailInput]
-  message = "Put your message here"
-
-  try:
-    smtpObj = smtplib.SMTP("localhost")
-    smtpObj.sendmail(sender, receivers, message)
-    return "Successful"
-  except Exception as e:
-    print(e)
-    return {"Error": e}
+def postEmail(email):
+  print("hi")
