@@ -26,11 +26,10 @@ def default():
 def getTableData(searchInput):
   cur = conn.cursor()
   searchInput = searchInput.replace("%20", " ")
+  cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and dateToday  = (select max(dateToday) from products where Itemname = '{}')".format(searchInput,searchInput))
+  rows = cur.fetchall()
+  cur.close()
   try:
-    cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and dateToday  = (select max(dateToday) from products where Itemname = '{}')".format(searchInput,searchInput))
-    rows = cur.fetchall()
-    cur.close()
-
     returnVal = {}
     returnVal["name"] = rows[0][3]
     returnVal["productID"] = int(rows[0][0])
