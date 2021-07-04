@@ -30,13 +30,6 @@ def getTableData(searchInput):
   rows = cur.fetchall()
   cur.close()
   try:
-<<<<<<< HEAD
-=======
-    cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and dateToday  = (select max(dateToday) from products where Itemname = '{}')".format(searchInput, searchInput))
-    rows = cur.fetchall()
-    cur.close()
-
->>>>>>> 9c2105a73c194dc55e7c904524904faf61c368d0
     returnVal = {}
     returnVal["name"] = rows[0][3]
     returnVal["productID"] = int(rows[0][0])
