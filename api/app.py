@@ -27,7 +27,7 @@ def getTableData(searchInput):
   cur = conn.cursor()
   searchInput = searchInput.replace("%20", " ")
   try:
-    cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and dateToday  = (select max(dateToday) from products where Itemname = '{}')".format(searchInput,searchInput))
+    cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and dateToday  = (select max(dateToday) from products where Itemname = '{}')".format(searchInput, searchInput))
     rows = cur.fetchall()
     cur.close()
 
