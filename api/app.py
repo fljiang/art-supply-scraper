@@ -31,11 +31,11 @@ def getTableData(searchInput):
   cur.close()
   try:
     returnVal = {}
-    returnVal["name"] = rows[0][3]
+    returnVal["name"] = rows[0][2]
     returnVal["productID"] = int(rows[0][0])
     returnVal["store"] = rows[0][1]
-    returnVal["stock"] = rows[0][5]
-    returnVal["price"] = float(rows[0][4])
+    returnVal["stock"] = rows[0][4]
+    returnVal["price"] = float(rows[0][3])
     return {"data": [returnVal]}
   except: # Couldnt find product
     return {"data": ["could not find product"]}
@@ -51,7 +51,7 @@ def getGraphData(productId):
     for row in rows:
       dict = {}
       dict["x"] = i
-      dict["y"] = float(row[4])
+      dict["y"] = float(row[3])
       i += 1
       listOfRows.append(dict)
     cur.close()
