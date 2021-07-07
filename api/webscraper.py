@@ -44,6 +44,7 @@ for line in products_file:
     productId = product[2]
     productLink = product[3]
     
+    print(productLink)
 
     if product[1] == "DeSerres":
         page = urlopen(productLink, context=context)
