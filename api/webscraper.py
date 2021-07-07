@@ -10,7 +10,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
-products_file = open(r"api/product_catalog.csv", "r")
+products_file = open(r"api/product_catalog.csv", "r", encoding = "ISO-8859-1")
 
 def availability(soup):
     isAvailable = soup.find("td", {"class": "PCContentAddQty"}).text == ""
