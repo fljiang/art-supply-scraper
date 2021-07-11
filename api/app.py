@@ -49,7 +49,7 @@ def getTableData(searchInput):
     returnVal["store"] = storeList
     returnVal["stock"] = stockList
     returnVal["price"] = priceList
-    return json.dumps({"Data": )returnVal}
+    return json.dumps({"Data": returnVal})
   except: # Couldnt find product
     return json.dumps({"Data": ["could not find product"]})
 
