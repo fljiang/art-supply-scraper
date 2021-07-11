@@ -9,6 +9,7 @@ import ssl
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+import config
 
 products_file = open(r"api/product_catalog.csv", "r", encoding = "ISO-8859-1")
 
@@ -21,8 +22,8 @@ def availability(soup):
 
 
 conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
-  user="tbnywkvrfotgxw",
-  password="e815e843be1ccfd95f0700c8a3f252f660d9a3124f9e2be8f6837e85f28e9044",
+  user=config.username,
+  password=config.password,
   database="d6frtg9f11e0qr",
   sslmode="require")
 cur = conn.cursor()

@@ -10,10 +10,11 @@ cors = CORS(app)
 import os
 import psycopg2 as db
 import ssl
+import config
 
 conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
-    user="tbnywkvrfotgxw",
-    password="e815e843be1ccfd95f0700c8a3f252f660d9a3124f9e2be8f6837e85f28e9044",
+    user=config.username,
+    password=config.password,
     database="d6frtg9f11e0qr",
     sslmode="require")
 
@@ -31,11 +32,11 @@ def getTableData(searchInput):
   cur.close()
   try:
     returnVal = {}
-    returnVal["name"] = rows[0][3]
+    returnVal["name"] = rows[0][2]
     returnVal["productID"] = int(rows[0][0])
     returnVal["store"] = rows[0][1]
-    returnVal["stock"] = rows[0][5]
-    returnVal["price"] = float(rows[0][4])
+    returnVal["stock"] = rows[0][4]
+    returnVal["price"] = float(rows[0][3])
     return {"data": [returnVal]}
   except: # Couldnt find product
     return {"data": ["could not find product"]}
@@ -51,7 +52,7 @@ def getGraphData(productId):
     for row in rows:
       dict = {}
       dict["x"] = i
-      dict["y"] = float(row[4])
+      dict["y"] = float(row[3])
       i += 1
       listOfRows.append(dict)
     cur.close()
