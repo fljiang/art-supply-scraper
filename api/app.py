@@ -40,9 +40,9 @@ def getTableData(searchInput):
       temp["stock"] = row[4]
       temp["price"] = float(row[3])
       returnVal.append(temp)
-    return {"Data": returnVal}
+    return {"data": returnVal}
   except: # Couldnt find product
-    return {"Data": ["could not find product"]}
+    return {"data": ["could not find product"]}
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
