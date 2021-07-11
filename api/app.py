@@ -30,28 +30,19 @@ def getTableData(searchInput):
   cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and dateToday  = (select max(dateToday) from products where Itemname = '{}')".format(searchInput, searchInput))
   rows = cur.fetchall()
   cur.close()
-  returnVal = {}
-  nameList = []
-  productIDList = []
-  storeList = []
-  stockList = []
-  priceList = []
+  returnVal = []
   try:
-    for row in rows: 
-      nameList.append(row[2])
-      productIDList.append(int(row[0]))
-      storeList.append(row[1])
-      stockList.append(row[4])
-      priceList.append(float(row[3]))
-    
-    returnVal["name"] = nameList
-    returnVal["productID"] = productIDList
-    returnVal["store"] = storeList
-    returnVal["stock"] = stockList
-    returnVal["price"] = priceList
-    return json.dumps({"Data": returnVal})
+    for row in rows:
+      temp = {} 
+      temp["nameList"] = row[2]
+      temp["productID"] = int(row[0])
+      temp["store"] = row[1]
+      temp["stock"] = row[4]
+      temp["price"] = float(row[3])
+      returnVal.append(temp)
+    return {"Data": returnVal}
   except: # Couldnt find product
-    return json.dumps({"Data": ["could not find product"]})
+    return {"Data": ["could not find product"]}
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
