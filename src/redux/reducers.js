@@ -35,7 +35,7 @@ const initialState = {
     {name: "Amsterdam Standard Acrylic Set - 36 x 20 ml"},
     {name: "Fabre Castell 12-Pack Pastel Pencils"},
     {name: "Pigma Sensei Manga Drawing Set"},
-    {name: "Winsor & Newton Fineliner Set of 5"}
+    {name: "Winsor & Newton Fineliner Set of 5 - Black"}
   ],
   tableData: defaultTableData,
 
