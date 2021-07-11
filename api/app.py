@@ -31,16 +31,25 @@ def getTableData(searchInput):
   rows = cur.fetchall()
   cur.close()
   returnVal = {}
+  nameList = []
+  productIDList = []
+  storeList = []
+  stockList = []
+  priceList = []
   try:
     for row in rows: 
-      temp = {}
-      temp["name"] = row[2]
-      temp["productID"] = int(row[0])
-      temp["store"] = row[1]
-      temp["stock"] = row[4]
-      temp["price"] = float(row[3])
-      returnVal['Data from ' + row[1]] = temp
-    return returnVal
+      nameList.append(row[2])
+      productIDList.append(int(row[0]))
+      storeList.append(row[1])
+      stockList.append(row[4])
+      priceList.append(float(row[3]))
+    
+    returnVal["name"] = nameList
+    returnVal["productID"] = productIDList
+    returnVal["store"] = storeList
+    returnVal["stock"] = stockList
+    returnVal["price"] = priceList
+    return {"Data": returnVal}
   except: # Couldnt find product
     return {"Data": ["could not find product"]}
 
