@@ -29,13 +29,13 @@ const initialState = {
   recentSearches: [],
   searchInput: "copic marker",
   searchOptions: [
+    {name: "Copic Ciao Markers 12pc Basic Marker Set"},
+    {name: "Mungyo Compressed Charcoal Set of 12"},
+    {name: "Mungyo Oil Pastel Set of 24 Standard Assortment"},
+    {name: "Amsterdam Standard Acrylic Set - 36 x 20 ml"},
+    {name: "Fabre Castell 12-Pack Pastel Pencils"},
     {name: "Pigma Sensei Manga Drawing Set"},
-    {name: "Oil Pastel Set of 12 Standard Assortment"},
-    {name: "Charcoal Pencil Set - 4 pencil pack"},
-    {name: "Set of 120 Polychromos Colour Pencils in Wood Case"},
-    {name: "Golden Acrylic Explorer 14-Piece Set"},
-    {name: "Oval paintbrush with a short handle"},
-    {name: "Box Set of 50 Extra Soft Pastels"}
+    {name: "Winsor & Newton Fineliner Set of 5"}
   ],
   tableData: defaultTableData,
 
