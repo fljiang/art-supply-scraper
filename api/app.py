@@ -49,9 +49,9 @@ def getTableData(searchInput):
     returnVal["store"] = storeList
     returnVal["stock"] = stockList
     returnVal["price"] = priceList
-    return [{"Data": returnVal}]
+    return json.dumps({"Data": )returnVal}
   except: # Couldnt find product
-    return [{"Data": ["could not find product"]}]
+    return json.dumps({"Data": ["could not find product"]})
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
