@@ -34,7 +34,7 @@ def getTableData(searchInput):
   try:
     for row in rows:
       temp = {} 
-      temp["nameList"] = row[2]
+      temp["name"] = row[2]
       temp["productID"] = int(row[0])
       temp["store"] = row[1]
       temp["stock"] = row[4]
