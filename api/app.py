@@ -31,8 +31,8 @@ def getTableData(searchInput):
   rows = cur.fetchall()
   cur.close()
   returnVal = {}
-  for row in rows: 
-    try:
+  try:
+    for row in rows: 
       temp = {}
       temp["name"] = row[0][2]
       temp["productID"] = int(row[0])
@@ -40,8 +40,9 @@ def getTableData(searchInput):
       temp["stock"] = row[4]
       temp["price"] = float(rows[3])
       returnVal[row[1]] = temp
-    except: # Couldnt find product
-      return {"data": ["could not find product"]}
+    return returnVal
+  except: # Couldnt find product
+    return {"data": ["could not find product"]}
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
