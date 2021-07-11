@@ -30,23 +30,26 @@ def getTableData(searchInput):
   cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and dateToday  = (select max(dateToday) from products where Itemname = '{}')".format(searchInput, searchInput))
   rows = cur.fetchall()
   cur.close()
-  try:
-    returnVal = {}
-    returnVal["name"] = rows[0][2]
-    returnVal["productID"] = int(rows[0][0])
-    returnVal["store"] = rows[0][1]
-    returnVal["stock"] = rows[0][4]
-    returnVal["price"] = float(rows[0][3])
-    return {"data": [returnVal]}
-  except: # Couldnt find product
-    return {"data": ["could not find product"]}
+  returnVal = {}
+  for row in rows: 
+    try:
+      temp = {}
+      temp["name"] = row[0][2]
+      temp["productID"] = int(row[0])
+      temp["store"] = row[1]
+      temp["stock"] = row[4]
+      temp["price"] = float(rows[3])
+      returnVal[row[1]] = temp
+    except: # Couldnt find product
+      return {"data": ["could not find product"]}
 
 @app.route("/graph/<productId>")
 def getGraphData(productId):
   cur = conn.cursor()
-  cur.execute("SELECT DISTINCT * from products WHERE productID = {}".format(productId))
-  rows = cur.fetchall()
+  
   try:
+    cur.execute("SELECT DISTINCT * from products WHERE productID = {}".format(productId))
+    rows = cur.fetchall()
     listOfRows = []
     i = 1
     for row in rows:
@@ -55,10 +58,13 @@ def getGraphData(productId):
       dict["y"] = float(row[3])
       i += 1
       listOfRows.append(dict)
-    cur.close()
     return {"data": listOfRows}
-  except:
+
+  except Exception:
+    conn.rollback()
     return {"data": ["could not find product"]}
+  else:
+    conn.commit()
 
 @app.route("/email/<emailInput>")
 def postEmail(email):
