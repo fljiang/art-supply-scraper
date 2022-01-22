@@ -2,9 +2,9 @@ const defaultGraphData = [{x: 1, y: 2}, {x: 2, y: 3}, {x: 3, y: 4}, {x: 4, y: 5}
 const defaultTableData = [
   {
     "productId": 1,
-    "name": "API may take up to",
-    "store": "take up to",
-    "stock": "30 seconds",
+    "name": "API may take",
+    "store": "up to 30",
+    "stock": "seconds",
     "price": 0
   },
   {
