@@ -4,11 +4,13 @@ Backend: https://art-supply-scraper.herokuapp.com/
 
 Todo: 
 
-- catch exception for api graph call
+- exception handling for api graph call
 
-- enable email notifications
+- change bar graph to line graph
 
-- update favorites dropdown
+- build email notifications
+
+- build favorites
 
 - create generic name in catalog
 
