@@ -9,6 +9,8 @@ export const getGraphData = state => state.graphData;
 export const getSearchInput = state => state.searchInput;
 export const getRecentSearches = state => state.recentSearches;
 
+const defaultGraphData = [{x: 1, y: 2}, {x: 2, y: 3}, {x: 3, y: 4}, {x: 4, y: 5}];
+
 function* setSearchInput(action) {
   let newRecentSearches = yield select(getRecentSearches);
 
@@ -31,6 +33,9 @@ function* setSearchInput(action) {
 
 function* setProductId(action) {
   const graphData = yield call(getGraphDataBackend, action.productId);
+  if (!graphData.data.length) {
+    graphData.data = defaultGraphData;
+  }
 
   yield put({
     type: "PRODUCT_ID_UPDATED",

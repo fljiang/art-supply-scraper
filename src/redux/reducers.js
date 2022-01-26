@@ -5,21 +5,7 @@ const defaultTableData = [
     "name": "API may take",
     "store": "up to 30",
     "stock": "seconds",
-    "price": 0
-  },
-  {
-    "productId": 2,
-    "name": "",
-    "store": "",
-    "stock": "",
-    "price": 0
-  },
-  {
-    "productId": 3,
-    "name": "",
-    "store": "",
-    "stock": "",
-    "price": 0
+    "price": ""
   }
 ]
 

@@ -3,7 +3,11 @@ import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import {
   XYPlot,
-  VerticalBarSeries
+  VerticalGridLines,
+  HorizontalGridLines,
+  XAxis,
+  YAxis,
+  LineSeries
 } from "react-vis";
 import styled from "styled-components";
 
@@ -15,8 +19,12 @@ class Graph extends Component {
   render() {
     return (
       <NewContainer id="graph">
-        <XYPlot height={200} width={200} colorType="category" colorDomain={[0]} colorRange={["#7e57c2"]}>
-          <VerticalBarSeries data={this.props.graphData}></VerticalBarSeries>
+        <XYPlot height={500} width={515} colorType="category" colorDomain={[0]} colorRange={["#7e57c2"]}>
+          <NewVerticalGridLines tickTotal={5}/>
+          <NewHorizontalGridLines tickTotal={5}/>
+          <NewXAxis title="Date" tickTotal={5} tickLabelAngle={270}/>
+          <NewYAxis title="Price" tickTotal={5}/>
+          <LineSeries data={this.props.graphData} color={0}></LineSeries>
         </XYPlot>
       </NewContainer>
     );
@@ -29,6 +37,24 @@ const NewContainer = styled(Container)`
   margin: 0;
   padding-left: 0;
   padding-right: 0;
+`;
+
+const NewVerticalGridLines = styled(VerticalGridLines)`
+  stroke: lightgray;
+`;
+
+const NewHorizontalGridLines = styled(HorizontalGridLines)`
+  stroke: lightgray;
+`;
+
+const NewXAxis = styled(XAxis)`
+  stroke: lightgray;
+  stroke-width: 0.5;
+`;
+
+const NewYAxis = styled(YAxis)`
+  stroke: lightgray;
+  stroke-width: 0.5;
 `;
 
 const mapStateToProps = (state) => ({
