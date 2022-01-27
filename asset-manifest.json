@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/art-supply-scraper/static/css/main.eb12cb14.chunk.css",
-    "main.js": "/art-supply-scraper/static/js/main.06caf29e.chunk.js",
-    "main.js.map": "/art-supply-scraper/static/js/main.06caf29e.chunk.js.map",
+    "main.js": "/art-supply-scraper/static/js/main.f5a551ae.chunk.js",
+    "main.js.map": "/art-supply-scraper/static/js/main.f5a551ae.chunk.js.map",
     "runtime-main.js": "/art-supply-scraper/static/js/runtime-main.324a9f59.js",
     "runtime-main.js.map": "/art-supply-scraper/static/js/runtime-main.324a9f59.js.map",
     "static/js/2.7d543341.chunk.js": "/art-supply-scraper/static/js/2.7d543341.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.324a9f59.js",
     "static/js/2.7d543341.chunk.js",
     "static/css/main.eb12cb14.chunk.css",
-    "static/js/main.06caf29e.chunk.js"
+    "static/js/main.f5a551ae.chunk.js"
   ]
 }
