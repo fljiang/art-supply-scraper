@@ -3,6 +3,7 @@ import {
   createMuiTheme,
   ThemeProvider
  } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import React, { Component } from "react";
@@ -62,10 +63,13 @@ class Navigation extends Component {
                 options={searchOptions}
                 getOptionLabel={(searchOption) => searchOption.name}
                 renderInput={(params) =>
-                <NewTextField
-                  {...params}
-                  onKeyDown={this.handleSearchInput}
-                  inputRef={this.searchInputRef}/>}
+                  <NewTextField
+                    {...params}
+                    onKeyDown={this.handleSearchInput}
+                    inputRef={this.searchInputRef}/>}
+                renderOption={(searchOption) => (
+                  <NewNavDropdownItem>{searchOption.name}</NewNavDropdownItem>
+                )}
               />
             </ThemeProvider>
             <NewButton variant="outline-success" onClick={this.submitSearchInput}>Search</NewButton>
@@ -119,6 +123,15 @@ const StyledAutocomplete = withStyles({
     padding: 10,
     height: 50,
     width: 300
+  },
+  inputRoot: {
+    color: "#7e57c2"
+
+  },
+  option: {
+    "&:hover": {
+      backgroundColor: "#7e57c2"
+    }
   }
 })(Autocomplete);
 
