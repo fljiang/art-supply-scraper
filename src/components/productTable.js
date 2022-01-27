@@ -45,7 +45,6 @@ class ProductTable extends Component {
 
 const NewContainer = styled(Container)`
   width: 50%;
-  max-width: 50%;
   margin: 0;
   padding-left: 0;
   padding-right: 0;
