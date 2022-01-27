@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import { connect } from "react-redux";
 import {
-  XYPlot,
+  FlexibleXYPlot,
   VerticalGridLines,
   HorizontalGridLines,
   XAxis,
@@ -19,13 +19,13 @@ class Graph extends Component {
   render() {
     return (
       <NewContainer id="graph">
-        <XYPlot height={500} width={515} colorType="category" colorDomain={[0]} colorRange={["#7e57c2"]}>
+        <FlexibleXYPlot colorType="category" colorDomain={[0]} colorRange={["#7e57c2"]}>
           <NewVerticalGridLines tickTotal={5}/>
           <NewHorizontalGridLines tickTotal={5}/>
           <NewXAxis title="Date" tickTotal={5} tickLabelAngle={270}/>
           <NewYAxis title="Price" tickTotal={5}/>
           <LineSeries data={this.props.graphData} color={0}></LineSeries>
-        </XYPlot>
+        </FlexibleXYPlot>
       </NewContainer>
     );
   }
@@ -33,7 +33,7 @@ class Graph extends Component {
 
 const NewContainer = styled(Container)`
   width: 50%;
-  max-width: 50%;
+  height: 600px;
   margin: 0;
   padding-left: 0;
   padding-right: 0;
