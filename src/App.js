@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import Navigation from "./components/navbar";
 import ProductTable from "./components/productTable";
 import Graph from "./components/graph";
-// import Contact from "./components/contact";
+import Contact from "./components/contact";
 import styled from "styled-components";
 
 class App extends Component {

@@ -51,9 +51,9 @@ class Navigation extends Component {
             <Nav className="mr-auto">
               <Nav.Link href="#home">Favorites</Nav.Link>
               <NavDropdown title="Recent Searches" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">{recentSearches[0]}</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">{recentSearches[1]}</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">{recentSearches[2]}</NavDropdown.Item>
+                <NewNavDropdownItem href="#action/3.1">{recentSearches[0]}</NewNavDropdownItem>
+                <NewNavDropdownItem href="#action/3.2">{recentSearches[1]}</NewNavDropdownItem>
+                <NewNavDropdownItem href="#action/3.3">{recentSearches[2]}</NewNavDropdownItem>
               </NavDropdown>
             </Nav>
             <ThemeProvider theme={theme}>
@@ -62,9 +62,8 @@ class Navigation extends Component {
                 options={searchOptions}
                 getOptionLabel={(searchOption) => searchOption.name}
                 renderInput={(params) =>
-                <TextField
+                <NewTextField
                   {...params}
-                  color="primary"
                   onKeyDown={this.handleSearchInput}
                   inputRef={this.searchInputRef}/>}
               />
@@ -90,6 +89,18 @@ const NewNavbar = styled(Navbar)`
   border-bottom: 2px solid #eee;
 `;
 
+const NewNavDropdownItem = styled(NavDropdown.Item)`
+  color: #7e57c2; !important;
+  &:hover, &:active, &:focus {
+    color: white;
+    background-color: #7e57c2 !important;
+  }
+`;
+
+const NewTextField = styled(TextField)`
+  width: 150% !important;
+`;
+
 const NewButton = styled(Button)`
   color: #7e57c2;
   height: 50%;
@@ -104,6 +115,7 @@ const NewButton = styled(Button)`
 
 const StyledAutocomplete = withStyles({
   root: {
+    marginRight: 150,
     padding: 10,
     height: 50,
     width: 300
