@@ -129,7 +129,7 @@ const StyledAutocomplete = withStyles({
 
   },
   option: {
-    "&:hover": {
+    "&:hover, &:active, &:focus": {
       backgroundColor: "#7e57c2"
     }
   }
