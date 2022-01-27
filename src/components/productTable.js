@@ -6,22 +6,39 @@ import { connect } from "react-redux";
 import { setProductId } from "../redux/actions";
 import styled from "styled-components";
 
-const columns = [{
-  dataField: "favorite",
-  text: "Favorite"
-}, {
-  dataField: "name",
-  text: "Name"
-}, {
-  dataField: "store",
-  text: "Store"
-}, {
-  dataField: "stock",
-  text: "Stock"
-}, {
-  dataField: "price",
-  text: "Price"
-}];
+const columns = [
+  {
+    dataField: "favorite",
+    text: "Favorite",
+    style: {
+        width: "15%",
+    }
+  }, {
+    dataField: "name",
+    text: "Name",
+    style: {
+      width: "30%",
+    }
+  }, {
+    dataField: "store",
+    text: "Store",
+    style: {
+      width: "20%",
+    }
+  }, {
+    dataField: "stock",
+    text: "Stock",
+    style: {
+      width: "20%",
+    }
+  }, {
+    dataField: "price",
+    text: "Price",
+    style: {
+      width: "15%",
+    }
+  }
+];
 
 class ProductTable extends Component {
   constructor(props) {
