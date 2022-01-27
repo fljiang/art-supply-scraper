@@ -24,11 +24,18 @@ const searchOptionsDict = {
 function* setSearchInput(action) {
   let newRecentSearches = yield select(getRecentSearches);
 
-  // Shift list
+  // Remove search input if already present
+  for (let i = 0; i < newRecentSearches.length; i++) {
+    if (action.searchInput === newRecentSearches[i]) {
+        newRecentSearches.splice(i, 1);
+        break
+    }
+  }
+  
   for (let i = newRecentSearches.length; i > 0; i--) {
     newRecentSearches[i] = newRecentSearches[i - 1];
   }
-
+    
   newRecentSearches[0] = action.searchInput;
   newRecentSearches = newRecentSearches.slice(0, 3);
 

@@ -2,8 +2,7 @@ import {
   withStyles,
   createMuiTheme,
   ThemeProvider
- } from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
+ } from "@material-ui/core/styles"; 
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import React, { Component } from "react";
@@ -22,6 +21,14 @@ class Navigation extends Component {
   constructor(props) {
     super(props);
     this.searchInputRef = React.createRef();
+  }
+  
+  handleRecentSearches = (searchInput) => {
+    if (!searchInput) {
+      return;
+    }
+    this.props.setSearchInput(searchInput);
+    this.forceUpdate();
   }
 
   handleSearchInput = (e) => {
@@ -52,9 +59,9 @@ class Navigation extends Component {
             <Nav className="mr-auto">
               <Nav.Link href="#home">Favorites</Nav.Link>
               <NavDropdown title="Recent Searches" id="basic-nav-dropdown">
-                <NewNavDropdownItem href="#action/3.1">{recentSearches[0]}</NewNavDropdownItem>
-                <NewNavDropdownItem href="#action/3.2">{recentSearches[1]}</NewNavDropdownItem>
-                <NewNavDropdownItem href="#action/3.3">{recentSearches[2]}</NewNavDropdownItem>
+                <NewNavDropdownItem onClick={() => {this.handleRecentSearches(recentSearches[0])}}>{recentSearches[0]}</NewNavDropdownItem>
+                <NewNavDropdownItem onClick={() => {this.handleRecentSearches(recentSearches[1])}}>{recentSearches[1]}</NewNavDropdownItem>
+                <NewNavDropdownItem onClick={() => {this.handleRecentSearches(recentSearches[2])}}>{recentSearches[2]}</NewNavDropdownItem>
               </NavDropdown>
             </Nav>
             <ThemeProvider theme={theme}>
@@ -95,9 +102,13 @@ const NewNavbar = styled(Navbar)`
 
 const NewNavDropdownItem = styled(NavDropdown.Item)`
   color: #7e57c2; !important;
-  &:hover, &:active, &:focus {
+  &:hover, &:focus {
     color: white;
     background-color: #7e57c2 !important;
+  }
+  &.active {
+    color: #7e57c2;
+    background-color: #ebebeb !important;
   }
 `;
 
@@ -126,7 +137,6 @@ const StyledAutocomplete = withStyles({
   },
   inputRoot: {
     color: "#7e57c2"
-
   },
   option: {
     "&:hover, &:active, &:focus": {
