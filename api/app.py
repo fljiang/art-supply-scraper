@@ -39,6 +39,7 @@ def getTableData(searchInput):
       temp["store"] = row[1]
       temp["stock"] = row[4]
       temp["price"] = float(row[3])
+      temp["productLink"] = row[7]
       returnVal.append(temp)
     return {"data": returnVal}
   except: # Couldnt find product
