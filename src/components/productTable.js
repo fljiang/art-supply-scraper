@@ -23,6 +23,9 @@ const columns = [
     },
     events: {
       onClick: (e, column, columnIndex, row, rowIndex) => {
+        if (!row.productLink) {
+          return
+        }  
         window.open(row.productLink);
       }
     }
