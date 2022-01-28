@@ -22,7 +22,6 @@ conn = db.connect(host="ec2-35-174-35-242.compute-1.amazonaws.com",
 def default():
   return "API WORKING!"
 
-
 @app.route("/table/<searchInput>")
 def getTableData(searchInput):
   cur = conn.cursor()
@@ -40,9 +39,11 @@ def getTableData(searchInput):
       temp["stock"] = row[4]
       temp["price"] = float(row[3])
       temp["productLink"] = row[7]
+      temp["dateToday"] = row[5]
       returnVal.append(temp)
     return {"data": returnVal}
-  except: # Couldnt find product
+  except:
+    conn.rollback()
     return {"data": ["could not find product"]}
 
 @app.route("/graph/<productId>")
@@ -62,11 +63,9 @@ def getGraphData(productId):
       listOfRows.append(dict)
     return {"data": listOfRows}
 
-  except Exception:
+  except:
     conn.rollback()
     return {"data": ["could not find product"]}
-  else:
-    conn.commit()
 
 @app.route("/email/<emailInput>")
 def postEmail(email):

@@ -18,6 +18,13 @@ const columns = [
     text: "Name",
     style: {
       width: "30%",
+      color: "#7e57c2",
+      textDecorationLine: "underline",
+    },
+    events: {
+      onClick: (e, column, columnIndex, row, rowIndex) => {
+        window.open(row.productLink);
+      }
     }
   }, {
     dataField: "store",
