@@ -3,10 +3,17 @@ import { defaultGraphData } from "./sagas";
 const defaultTableData = [
   {
     "productId": 1,
-    "name": "API may take",
-    "store": "up to 30",
-    "stock": "seconds",
-    "price": ""
+    "name": "",
+    "store": "API takes up",
+    "stock": "up to 30",
+    "price": "seconds"
+  },
+  {
+    "productId": 2,
+    "name": "",
+    "store": "Scheduler",
+    "stock": "currently",
+    "price": "disabled"
   }
 ]
 
