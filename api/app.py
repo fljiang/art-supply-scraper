@@ -26,10 +26,11 @@ def default():
 def getTableData(searchInput):
   cur = conn.cursor()
   searchInput = searchInput.replace("%20", " ")
-  cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and dateToday  = (select max(dateToday) from products where Itemname = '{}')".format(searchInput, searchInput))
+  cur.execute("SELECT DISTINCT * from products WHERE Itemname = '{}' and dateToday = (select max(dateToday) from products where Itemname = '{}')".format(searchInput, searchInput))
   rows = cur.fetchall()
   cur.close()
-  returnVal = []
+  data = []
+
   try:
     for row in rows:
       temp = {} 
@@ -39,9 +40,9 @@ def getTableData(searchInput):
       temp["stock"] = row[4]
       temp["price"] = float(row[3])
       temp["productLink"] = row[7]
-      temp["dateToday"] = row[5]
-      returnVal.append(temp)
-    return {"data": returnVal}
+      data.append(temp)
+    return {"data": data}
+
   except:
     conn.rollback()
     return {"data": ["could not find product"]}
@@ -53,15 +54,31 @@ def getGraphData(productId):
   try:
     cur.execute("SELECT DISTINCT * from products WHERE productID = {}".format(productId))
     rows = cur.fetchall()
-    listOfRows = []
+    cur.close()
+    data = []
+    dates = []
+    maxPrice = 0
     i = 1
     for row in rows:
-      dict = {}
-      dict["x"] = i
-      dict["y"] = float(row[3])
+      # Graph data
+      temp = {}
+      temp["x"] = i
+      price = float(row[3])
+      temp["y"] = price
+      data.append(temp)
       i += 1
-      listOfRows.append(dict)
-    return {"data": listOfRows}
+
+      # Date data
+      dates.append(row[5])
+
+      # Update maxPrice
+      if price > maxPrice: maxPrice = price
+
+    return {
+      "data": data,
+      "dates": dates,
+      "maxPrice": maxPrice
+    }
 
   except:
     conn.rollback()
