@@ -19,10 +19,10 @@ class Graph extends Component {
   render() {
     return (
       <NewContainer id="graph">
-        <FlexibleXYPlot colorType="category" colorDomain={[0]} colorRange={["#7e57c2"]}>
-          <NewVerticalGridLines tickTotal={5}/>
+        <FlexibleXYPlot colorType="category" colorDomain={[0]} colorRange={["#7e57c2"]} xType="ordinal">
+          <NewVerticalGridLines/>
           <NewHorizontalGridLines tickTotal={5}/>
-          <NewXAxis title="Date" tickTotal={5} tickLabelAngle={270}/>
+          <NewXAxis title="Date"/>
           <NewYAxis title="Price" tickTotal={5}/>
           <LineSeries data={this.props.graphData} color={0}></LineSeries>
         </FlexibleXYPlot>
@@ -58,7 +58,8 @@ const NewYAxis = styled(YAxis)`
 `;
 
 const mapStateToProps = (state) => ({
-  graphData: state.graphData
+  graphData: state.graphData,
+  dates: state.dates
 })
 
 export default connect(mapStateToProps)(Graph);

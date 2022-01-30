@@ -15,7 +15,15 @@ const defaultTableData = [
     "stock": "currently",
     "price": "disabled"
   }
-]
+];
+
+const defaultDates = [
+  "2021-07-07",
+  "2021-07-08",
+  "2021-07-09",
+  "2021-07-10",
+  "2021-07-11",
+];
 
 const initialState = {
 
@@ -33,10 +41,14 @@ const initialState = {
   ],
   tableData: defaultTableData,
 
-  // Product
+  // Product table
   activeProductId: "",
   favourites: [],
+
+  // Graph
   graphData: defaultGraphData,
+  dates: defaultDates,
+  yAxisValues: 100,
 
   // Email
   emailInputSuccess: false

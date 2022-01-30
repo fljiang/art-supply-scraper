@@ -8,7 +8,13 @@ import {
 export const getGraphData = state => state.graphData;
 export const getSearchInput = state => state.searchInput;
 export const getRecentSearches = state => state.recentSearches;
-export const defaultGraphData = [{x: 1, y: 2}, {x: 2, y: 3}, {x: 3, y: 4}, {x: 4, y: 5}];
+export const defaultGraphData = [
+  {x: "2021-07-07", y: 0},
+  {x: "2021-07-08", y: 0},
+  {x: "2021-07-09", y: 0},
+  {x: "2021-07-10", y: 0},
+  {x: "2021-07-11", y: 0}
+];
 
 // Maps search option display names to api call names
 const searchOptionsDict = {

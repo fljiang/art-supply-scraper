@@ -63,22 +63,17 @@ def getGraphData(productId):
     for row in rows:
       # Graph data
       temp = {}
-      temp["x"] = i
+      temp["x"] = row[5].strftime("%Y-%m-%d")
       price = float(row[3])
       temp["y"] = price
       data.append(temp)
       i += 1
-
-      # Date data
-      date = row[5].strftime("%Y-%m-%d")
-      dates.append(date)
 
       # Update maxPrice
       if price > maxPrice: maxPrice = price
 
     return {
       "data": data,
-      "dates": dates,
       "maxPrice": maxPrice
     }
 
