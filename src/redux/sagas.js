@@ -67,6 +67,8 @@ function* setSearchInput(action) {
 
 function* setProductId(action) {
   const response = yield call(getGraphDataBackend, action.productId);
+
+  // Graph data
   let graphData;
   if (!response.data.length) {
     graphData = defaultGraphData;
@@ -75,10 +77,15 @@ function* setProductId(action) {
     graphData = response.data;
   }
 
+  // Max price
+  const maxPrice = response.maxPrice;
+  const yAxisMax = Math.ceil(maxPrice / 10) * 10;
+
   yield put({
     type: "PRODUCT_ID_UPDATED",
     productId: action.productId,
-    graphData: graphData
+    graphData: graphData,
+    yAxisMax: yAxisMax
   });
 }
 

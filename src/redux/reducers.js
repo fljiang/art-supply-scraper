@@ -39,7 +39,7 @@ const initialState = {
 
   // Graph
   graphData: defaultGraphData,
-  maxPrice: 0,
+  yAxisMax: 1,
 
   // Email
   emailInputSuccess: false
@@ -58,7 +58,8 @@ export default (state = initialState, action) => {
       return {
         ...state,
         activeProductId: action.productId,
-        graphData: action.graphData
+        graphData: action.graphData,
+        yAxisMax: action.yAxisMax
       }
     case "EMAIL_INPUT_UPDATED":
       return {

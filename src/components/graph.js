@@ -19,7 +19,7 @@ class Graph extends Component {
   render() {
     return (
       <NewContainer id="graph">
-        <FlexibleXYPlot colorType="category" colorDomain={[0]} colorRange={["#7e57c2"]} xType="ordinal">
+        <FlexibleXYPlot colorType="category" yDomain={[0, this.props.yAxisMax]} colorDomain={[0]} colorRange={["#7e57c2"]} xType="ordinal">
           <NewVerticalGridLines/>
           <NewHorizontalGridLines tickTotal={5}/>
           <NewXAxis title="Date"/>
@@ -36,7 +36,7 @@ const NewContainer = styled(Container)`
   height: 600px;
   margin: 0;
   padding-left: 0;
-  padding-right: 0;
+  padding-right: 2%;
 `;
 
 const NewVerticalGridLines = styled(VerticalGridLines)`
@@ -59,7 +59,7 @@ const NewYAxis = styled(YAxis)`
 
 const mapStateToProps = (state) => ({
   graphData: state.graphData,
-  dates: state.dates
+  yAxisMax: state.yAxisMax
 })
 
 export default connect(mapStateToProps)(Graph);

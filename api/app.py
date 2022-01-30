@@ -57,7 +57,6 @@ def getGraphData(productId):
     rows = cur.fetchall()
     cur.close()
     data = []
-    dates = []
     maxPrice = 0
     i = 1
     for row in rows:
