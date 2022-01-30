@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
+from datetime import datetime
 import pandas as pd
 import json
 
@@ -69,7 +70,8 @@ def getGraphData(productId):
       i += 1
 
       # Date data
-      dates.append(row[5])
+      date = row[5].strftime("%Y-%m-%d")
+      dates.append(date)
 
       # Update maxPrice
       if price > maxPrice: maxPrice = price
