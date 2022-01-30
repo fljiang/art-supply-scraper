@@ -17,14 +17,6 @@ const defaultTableData = [
   }
 ];
 
-const defaultDates = [
-  "2021-07-07",
-  "2021-07-08",
-  "2021-07-09",
-  "2021-07-10",
-  "2021-07-11",
-];
-
 const initialState = {
 
   // Search
@@ -47,8 +39,7 @@ const initialState = {
 
   // Graph
   graphData: defaultGraphData,
-  dates: defaultDates,
-  yAxisValues: 100,
+  maxPrice: 0,
 
   // Email
   emailInputSuccess: false

@@ -8,6 +8,7 @@ import {
 export const getGraphData = state => state.graphData;
 export const getSearchInput = state => state.searchInput;
 export const getRecentSearches = state => state.recentSearches;
+
 export const defaultGraphData = [
   {x: "2021-07-07", y: 0},
   {x: "2021-07-08", y: 0},
