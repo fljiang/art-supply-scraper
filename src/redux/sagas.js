@@ -26,7 +26,7 @@ const searchOptionsDict = {
   "Faber Castell Pastel Pencils Set (12PC)": "Fabre Castell 12-Pack Pastel Pencils",
   "Pigma Sensei Manga Drawing Set (6PC)": "Pigma Sensei Manga Drawing Set",
   "Winsor & Newton Black Fineliner Set (5PC)": "Winsor & Newton Fineliner Set of 5 - Black"
-}
+};
 
 function* setSearchInput(action) {
   let newRecentSearches = yield select(getRecentSearches);
