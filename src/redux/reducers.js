@@ -43,7 +43,7 @@ const initialState = {
 
   // Email
   emailInputSuccess: false
-}
+};
 
 export default (state = initialState, action) => {
   switch(action.type) {
